@@ -1,0 +1,5 @@
+# 本地临时产物（调试截图等）
+.dsh-vision-toolkit/
+.vscode/
+Thumbs.db
+desktop.ini

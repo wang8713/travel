@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>香格里拉 · 稻城亚丁 5天4晚攻略（11.10 出发）</title>
+<meta name="description" content="香格里拉 + 稻城亚丁 5天4晚行程攻略：丽江进出，大巴往返亚丁。含出发倒计时、行程路线图、JD5191 / CA8517 / GJ8644 三段航班信息。">
+<meta name="theme-color" content="#FAF7F3">
+<style>
+  /* ================= 设计变量（暖米白 · 手账风） ================= */
+  :root{
+    --bg:#FAF7F3;
+    --card:#FFFDFB;
+    --card-2:#F6F1EA;
+    --ink:#3A322C;
+    --ink-2:#6B5F56;
+    --ink-3:#9C8E84;
+    --line:#EDE4DA;
+    --line-2:#F5EEE7;
+    --brown:#AD8A80;
+    --brown-deep:#8B6353;
+    --brown-soft:#F3E7E0;
+    --sage:#7E9B90;
+    --sage-soft:#E9F0EC;
+    --gold:#C9922F;
+    --gold-soft:#FBF0D9;
+    --red:#C2603F;
+    --blue:#5E7C93;
+    --plum:#8B7BA8;
+    --marker:rgba(232,199,124,.62);
+    --radius:24px;
+    --radius-sm:16px;
+    --shadow:0 1px 0 rgba(170,150,130,.10), 0 20px 38px -30px rgba(110,85,65,.60);
+    --shadow-sm:0 1px 0 rgba(170,150,130,.10), 0 12px 24px -22px rgba(110,85,65,.55);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#17130F; --card:#221C17; --card-2:#2A231D;
+      --ink:#F2EAE1; --ink-2:#C2B3A6; --ink-3:#8E8076;
+      --line:#332A23; --line-2:#2A231D;
+      --brown:#C79E92; --brown-deep:#DDB49F; --brown-soft:#31241E;
+      --sage:#9DBAAF; --sage-soft:#232E29;
+      --gold:#E3B45C; --gold-soft:#33290F;
+      --red:#D9754F; --blue:#7FA0B8; --plum:#A79AC6;
+      --marker:rgba(190,150,70,.42);
+      --shadow:0 1px 0 rgba(0,0,0,.4), 0 22px 38px -30px rgba(0,0,0,.95);
+      --shadow-sm:0 1px 0 rgba(0,0,0,.4), 0 12px 24px -22px rgba(0,0,0,.9);
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); overflow-x:hidden;
+    background-image:repeating-linear-gradient(180deg, rgba(173,138,128,.055) 0 1px, transparent 1px 30px);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Segoe UI","Microsoft YaHei",sans-serif;
+    font-variant-numeric:tabular-nums; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:880px; margin:0 auto; padding:34px 16px 60px}
+  .emo{font-size:15px; line-height:1; display:block}
+  .mark{
+    background-image:linear-gradient(180deg, transparent 58%, var(--marker) 58%, var(--marker) 94%, transparent 94%);
+    padding:0 2px; border-radius:2px;
+  }
+  .card{
+    position:relative; border-radius:var(--radius); background:var(--card);
+    border:1px solid var(--line); box-shadow:var(--shadow);
+  }
+  .tape{
+    position:absolute; width:96px; height:26px; border-radius:3px;
+    background:rgba(214,186,150,.42);
+    border-left:1px dashed rgba(255,255,255,.62); border-right:1px dashed rgba(255,255,255,.62);
+    box-shadow:0 2px 4px -2px rgba(120,95,70,.35);
+  }
+  .tape.a{top:-13px; left:34px; transform:rotate(-4.5deg)}
+  .tape.b{top:-13px; right:38px; transform:rotate(5deg)}
+
+  /* ================= 封面 ================= */
+  .cover{
+    padding:34px 26px 26px;
+    background:
+      radial-gradient(120% 120% at 92% -10%, rgba(232,199,124,.30) 0%, transparent 55%),
+      radial-gradient(90% 90% at 2% 100%, rgba(173,138,128,.14) 0%, transparent 60%),
+      var(--card);
+  }
+  .cover h1{margin:0 0 10px; font-size:clamp(27px,6.6vw,42px); line-height:1.24; font-weight:800; letter-spacing:-.01em}
+  .cover .meta{margin:0 0 16px; color:var(--ink-2); font-size:15px}
+  .badges{display:flex; flex-wrap:wrap; gap:8px}
+  .bdg{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:750; color:#4F6B5F; background:var(--sage-soft); border-radius:12px; padding:7px 14px}
+  .bdg.warm{color:var(--brown-deep); background:var(--brown-soft)}
+  .bdg.todo{color:var(--red); background:var(--card); border:1px solid var(--line)}
+
+  /* ================= 吸顶导航 ================= */
+  .chips{
+    position:sticky; top:0; z-index:20;
+    display:flex; gap:7px; overflow-x:auto; white-space:nowrap;
+    margin:14px -16px 4px; padding:11px 16px;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line); scrollbar-width:none;
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{
+    flex:none; text-decoration:none; color:var(--ink-2); font-size:13px; font-weight:700;
+    padding:6px 13px; border-radius:999px; border:1px solid var(--line); background:var(--card); transition:.16s ease;
+  }
+  .chips a:hover,.chips a:focus-visible{color:#fff; background:var(--brown); border-color:var(--brown)}
+
+  .title{
+    display:flex; align-items:center; gap:9px; margin:34px 4px 16px;
+    font-size:16.5px; font-weight:800; color:var(--ink); scroll-margin-top:74px;
+  }
+  .title .emo{font-size:18px}
+  .title::after{content:""; flex:1; height:2px; border-radius:2px; background:repeating-linear-gradient(90deg, var(--line) 0 7px, transparent 7px 14px)}
+
+  /* ================= ① 倒计时 ================= */
+  .now{padding:26px 24px 22px; margin-top:26px; scroll-margin-top:74px;
+    background:
+      radial-gradient(110% 120% at 8% -10%, rgba(194,96,63,.12) 0%, transparent 55%),
+      radial-gradient(110% 130% at 95% 0%, rgba(232,199,124,.30) 0%, transparent 58%),
+      var(--card);
+  }
+  .now-head{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:14px}
+  .now-lbl{font-size:12.5px; font-weight:800; letter-spacing:.14em; color:var(--ink-3); margin:0}
+  .now-clock{font-size:11.5px; color:var(--ink-3); font-weight:700}
+  .now-clock b{color:var(--ink-2)}
+  .now-lbl .dot{display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--red); margin-right:8px}
+  .now-route{margin:2px 0 6px; font-size:clamp(24px,6.4vw,34px); font-weight:800; letter-spacing:-.01em; line-height:1.2; color:var(--ink)}
+  .now-sub{margin:0; color:var(--ink-2); font-size:14.5px}
+  .cd-big{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; margin:16px 0 18px; font-weight:800}
+  .cd-big b{font-size:clamp(36px,9vw,56px); line-height:1.05; color:var(--red); letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .cd-big i{font-style:normal; font-size:15px; color:var(--ink-3); font-weight:750}
+  .plan-row{display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:13px 15px; border-radius:var(--radius-sm); background:var(--card-2); border:1px solid var(--line)}
+  .plan-pill{flex:none; font-size:12.5px; font-weight:800; color:#fff; background:var(--red); border-radius:10px; padding:6px 12px}
+  .plan-row p{flex:1 1 240px; margin:0; font-size:14px; font-weight:650; line-height:1.6; color:var(--ink)}
+  .plan-row a{flex:none; font-size:13.5px; font-weight:800; color:var(--red); text-decoration:none}
+  .plan-row a:hover{text-decoration:underline}
+  .now-foot{margin:14px 0 0; font-size:11.5px; color:var(--ink-3)}
+
+  /* ================= ② 路线图 ================= */
+  .map-card{padding:16px 14px 12px}
+  .map{width:100%; height:auto; display:block}
+  .map-intro{margin:2px 8px 12px; font-size:14.5px; color:var(--ink-2)}
+  .map-leg{display:grid; gap:8px; padding:10px 8px 6px; font-size:12.5px; font-weight:650; color:var(--ink-2)}
+  .map-leg b{font-weight:800; color:var(--ink)}
+  .lgd{display:flex; align-items:center; gap:9px}
+  .lgd i{flex:none; width:22px; height:3.5px; border-radius:2px; background:var(--c,var(--ink-3))}
+  .lgd i.fly{height:0; background:none; border-top:3px dashed var(--ink-3)}
+  .map-note{padding:2px 8px 6px; font-size:11.5px; color:var(--ink-3)}
+
+  .mini{list-style:none; margin:16px 0 0; padding:0; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+  .mini li{display:flex; align-items:center; gap:12px; padding:14px 18px; border-bottom:1px dashed var(--line)}
+  .mini li:last-child{border-bottom:0}
+  .mini .mdot{flex:none; width:12px; height:12px; border-radius:50%; background:var(--c,var(--brown))}
+  .mini div{flex:1; min-width:0}
+  .mini b{display:block; font-size:15px; font-weight:750; line-height:1.5}
+  .mini b em{font-style:normal; color:var(--c,var(--brown)); font-weight:800; margin-right:9px}
+  .mini span{display:block; margin-top:2px; font-size:12.5px; color:var(--ink-3)}
+  .mini .m{flex:none; margin-left:auto; font-size:13px; font-weight:750; color:var(--ink-2); white-space:nowrap}
+
+  /* ================= 一键唤起地图 ================= */
+  .nav-card{overflow:hidden}
+  .nseg{display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:13px 16px; border-bottom:1px dashed var(--line)}
+  .nseg .t{flex:1 1 220px; min-width:0}
+  .nseg b{display:block; font-size:14.5px; font-weight:750; line-height:1.5}
+  .nseg span{display:block; margin-top:2px; font-size:12px; color:var(--ink-3)}
+  .napps{display:flex; gap:7px; flex-wrap:wrap}
+  .napp{font-size:12.5px; font-weight:750; text-decoration:none; padding:6px 12px; border-radius:10px; background:var(--card-2); border:1px solid var(--line); color:var(--brown-deep)}
+  .napp:hover{border-color:var(--brown); color:var(--brown)}
+  .nav-tip{margin:0; padding:11px 16px 14px; font-size:12px; color:var(--ink-3)}
+
+  /* ================= 日程卡 ================= */
+  .day{padding:20px 20px 12px; margin-bottom:16px; scroll-margin-top:74px}
+  .day-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:14px; border-bottom:1px dashed var(--line)}
+  .badge{flex:none; font-size:11px; font-weight:800; letter-spacing:.1em; color:var(--brown-deep); background:var(--brown-soft); border-radius:999px; padding:5px 12px}
+  .day-head h2{margin:0; font-size:18px; line-height:1.4; font-weight:800; flex:1 1 auto}
+  .cost{flex:none; font-size:14px; font-weight:800; color:#4F6B5F; background:var(--sage-soft); border-radius:999px; padding:5px 13px; white-space:nowrap}
+  .cost small{font-weight:700; font-size:10.5px; margin-left:1px; opacity:.75}
+
+  .steps{list-style:none; margin:0; padding:16px 0 0}
+  .step{position:relative; display:flex; gap:13px; padding:0 0 20px}
+  .step:last-child{padding-bottom:8px}
+  .step::before{
+    content:""; position:absolute; left:26px; top:40px; bottom:-2px; width:2px;
+    background:repeating-linear-gradient(180deg, var(--line) 0 5px, transparent 5px 10px);
+  }
+  .step:last-child::before{display:none}
+  .node{flex:none; width:54px; display:flex; flex-direction:column; align-items:center; gap:5px}
+  .node-ic{width:36px; height:36px; border-radius:50%; display:grid; place-items:center; background:var(--card-2); border:1.5px solid var(--line)}
+  .node-ic.hotel{background:var(--gold-soft); border-color:color-mix(in srgb, var(--gold) 30%, transparent)}
+  .node-ic.play{background:var(--sage-soft); border-color:color-mix(in srgb, var(--sage) 30%, transparent)}
+  .node-label{font-size:10.5px; color:var(--ink-3); font-weight:600}
+  .detail{flex:1; min-width:0; padding-top:2px}
+  .detail strong{display:block; font-weight:750; font-size:15.5px; line-height:1.55}
+  .detail span{display:block; margin-top:3px; font-size:13.5px; color:var(--ink-2)}
+  .detail .hl{color:var(--brown-deep); font-weight:750}
+  .tk-wrap{display:grid; grid-template-columns:repeat(auto-fit, minmax(262px,1fr)); gap:12px; margin-top:13px}
+
+  /* ================= 登机牌 ================= */
+  .ticket{--tk:#5E7C93; position:relative; border-radius:var(--radius-sm); overflow:hidden; background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow-sm)}
+  .ticket[data-carrier="jd"]{--tk:#C2603F}
+  .ticket[data-carrier="ca"]{--tk:#5E7C93}
+  .ticket[data-carrier="gj"]{--tk:#6E9184}
+  .tk-head{display:flex; align-items:center; gap:10px; padding:11px 14px; background:color-mix(in srgb, var(--tk) 11%, var(--card)); border-bottom:1px solid color-mix(in srgb, var(--tk) 18%, transparent)}
+  .tk-code{flex:none; width:32px; height:32px; border-radius:10px; display:grid; place-items:center; font-size:12px; font-weight:800; color:#fff; background:var(--tk)}
+  .tk-carrier{flex:1; min-width:0; line-height:1.3}
+  .tk-carrier strong{display:block; font-size:13.5px; font-weight:750}
+  .tk-carrier span{display:block; font-size:11px; color:var(--ink-3)}
+  .tk-fare{flex:none; font-size:14.5px; font-weight:800; color:var(--brown-deep)}
+  .tk-body{display:flex; align-items:center; gap:6px; padding:15px 14px 13px}
+  .tk-port{flex:1; min-width:0}
+  .tk-port.to{text-align:right}
+  .tk-port b{display:block; font-size:21px; font-weight:800; line-height:1.15}
+  .tk-port span{display:block; font-size:10.5px; color:var(--ink-3); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .tk-port em{display:block; font-style:normal; font-size:14.5px; font-weight:800; margin-top:5px; color:var(--tk)}
+  .tk-line{flex:1.15; display:flex; flex-direction:column; align-items:center; gap:3px; color:var(--ink-3); min-width:0}
+  .tk-line .emo{font-size:16px}
+  .tk-line .dash{width:100%; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 4px, transparent 4px 8px)}
+  .tk-line span{font-size:10px}
+  .tk-stub{position:relative; display:flex; align-items:center; gap:8px; padding:10px 14px 11px; border-top:1px dashed color-mix(in srgb, var(--tk) 32%, var(--line)); background:color-mix(in srgb, var(--tk) 5%, var(--card-2))}
+  .tk-stub::before,.tk-stub::after{content:""; position:absolute; top:-8px; width:16px; height:16px; border-radius:50%; background:var(--card); border:1px solid var(--line)}
+  .tk-stub::before{left:-9px}
+  .tk-stub::after{right:-9px}
+  .chip{display:inline-flex; align-items:center; gap:5px; flex:none; font-size:11px; font-weight:750; padding:3px 10px; border-radius:999px; background:var(--sage-soft); color:#4F6B5F}
+  .chip.off{background:var(--card-2); color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px}
+  .tk-tag{margin-left:auto; font-size:11px; color:var(--ink-3); white-space:nowrap}
+
+  /* ================= 费用 ================= */
+  .total{
+    padding:24px 24px 22px; margin-bottom:14px;
+    background:
+      radial-gradient(110% 130% at 90% 0%, rgba(232,199,124,.28) 0%, transparent 58%),
+      var(--card);
+  }
+  .total .lbl{font-size:12.5px; font-weight:800; letter-spacing:.14em; color:var(--ink-3)}
+  .total .big{display:block; margin:8px 0 6px; font-size:clamp(34px,9vw,50px); line-height:1.05; font-weight:800; letter-spacing:-.02em; color:var(--brown-deep)}
+  .total .desc{font-size:13.5px; color:var(--ink-2)}
+  .total .split{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+  .total .split div{flex:1 1 130px; background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm); padding:11px 14px}
+  .total .split span{display:block; font-size:11.5px; color:var(--ink-3); font-weight:700}
+  .total .split b{display:block; margin-top:2px; font-size:18px; font-weight:800}
+
+  .table-wrap{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th,td{padding:12px 18px; text-align:left; border-bottom:1px dashed var(--line)}
+  th{font-size:11.5px; letter-spacing:.1em; font-weight:800; color:var(--ink-3); background:var(--card-2); border-bottom:1px solid var(--line)}
+  td:last-child, th:last-child{text-align:right}
+  tbody tr:last-child td{border-bottom:0}
+  tr.sub td{color:var(--ink-3); font-size:13px; background:color-mix(in srgb, var(--brown) 5%, transparent)}
+  tr.sub td:first-child{padding-left:36px}
+  tfoot td{border-top:2px solid var(--brown); border-bottom:0; font-weight:800; font-size:16.5px; color:var(--brown-deep); background:var(--gold-soft)}
+  tfoot td:first-child{color:var(--ink)}
+
+  /* ================= 温馨提示 ================= */
+  .tips{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:10px 22px 16px; counter-reset:t}
+  .tips ol{margin:0; padding:0}
+  .tips li{list-style:none; counter-increment:t; position:relative; padding:12px 0 12px 36px; border-bottom:1px dashed var(--line); font-size:14.5px}
+  .tips li:last-child{border-bottom:0}
+  .tips li::before{content:counter(t); position:absolute; left:0; top:13px; width:24px; height:24px; border-radius:50%; display:grid; place-items:center; font-size:11.5px; font-weight:800; color:#fff; background:var(--brown)}
+
+  .note{margin-top:18px; padding:15px 18px; border-radius:var(--radius-sm); background:var(--card-2); border:1px dashed var(--line); font-size:13.5px; color:var(--ink-2)}
+  .note b{display:block; margin-bottom:4px; font-size:13px; color:var(--ink)}
+  footer{margin-top:30px; text-align:center; font-size:12.5px; color:var(--ink-3)}
+
+  /* ================= 响应式 ================= */
+  @media (max-width:600px){
+    .page{padding:24px 14px 52px}
+    .cover{padding:28px 18px 20px}
+    .cover h1{font-size:clamp(25px,7.4vw,32px)}
+    .tape{width:74px; height:22px}
+    .tape.a{left:18px} .tape.b{right:20px}
+    .chips{margin:12px -14px 4px; padding:10px 14px}
+    .now{padding:22px 16px 18px}
+    .cd-big{gap:5px}
+    .cd-big b{font-size:clamp(30px,10.5vw,44px)}
+    .plan-row{padding:12px 13px}
+    .day{padding:17px 15px 10px}
+    .step{gap:10px}
+    .node{width:48px}
+    .step::before{left:23px}
+    .node-ic{width:32px; height:32px}
+    .tk-wrap{grid-template-columns:1fr}
+    .mini li{padding:13px 15px; gap:10px}
+    .mini .m{font-size:12px}
+    th,td{padding:11px 15px}
+    tr.sub td:first-child{padding-left:24px}
+    .tips{padding:6px 18px 12px}
+    .tips li{padding-left:32px}
+  }
+
+  /* ================= 打印 / 存 PDF ================= */
+  @media print{
+    :root{--bg:#fff; --card:#fff; --card-2:#F8F4EF; --shadow:none; --shadow-sm:none}
+    body{background:#fff; background-image:none}
+    .chips{display:none}
+    .day,.table-wrap,.tips,.ticket,.total,.cover,.now,.mini,.map-card,.nav-card{break-inside:avoid}
+    .page{padding-top:0; padding-bottom:0}
+    .cover,.day,.ticket,.badge,.cost,.node-ic,.chip,.total,table,tr.sub td,tfoot td,.now,.plan-pill,.cd-big,.mini,.lgd,.mdot,.napp,.map-card{
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ================= 封面 ================= -->
+  <header class="card cover">
+    <span class="tape a"></span>
+    <span class="tape b"></span>
+
+    <h1>🏔️ 香格里拉 · 稻城亚丁之旅</h1>
+    <p class="meta">2026.11.10（周二）– 11.14（周六）· 丽江进出 · 往返直飞 ＋ 高铁/大巴陆路约 1,000 公里</p>
+
+    <div class="badges">
+      <span class="bdg">✈️ 往返机票已出票</span>
+      <span class="bdg warm">🚄 高铁 2 段 · F 座靠窗</span>
+      <span class="bdg warm">🏨 酒店 4/4</span>
+      <span class="bdg todo">🚌 亚丁大巴票 · 待购</span>
+    </div>
+  </header>
+
+  <nav class="chips" aria-label="页面导航">
+    <a href="#now">⏳ 倒计时</a>
+    <a href="#overview">🗺️ 行程总览</a>
+    <a href="#nav">🧭 导航</a>
+    <a href="#d1">Day 1</a>
+    <a href="#d2">Day 2</a>
+    <a href="#d3">Day 3</a>
+    <a href="#d4">Day 4</a>
+    <a href="#d5">Day 5</a>
+    <a href="#cost">费用</a>
+    <a href="#tips">提醒</a>
+  </nav>
+
+  <!-- ================= ① 倒计时 + 当日计划 ================= -->
+  <section class="card now" id="now">
+    <span class="tape b"></span>
+    <div class="now-head">
+      <p class="now-lbl"><span class="dot"></span>此刻 · NOW</p>
+      <span class="now-clock">现在 <b id="clock">--:--:--</b> 北京时间</span>
+    </div>
+
+    <h2 class="now-route" id="cdTitle">HGH ✈️ LJG 起飞</h2>
+    <p class="now-sub" id="cdSub">首都航空 JD5191 · 3h50m 直飞 · 建议 06:10 前到机场</p>
+
+    <p class="cd-big"><b id="cdD">—</b><i>天</i> <b id="cdT">--:--:--</b><i>后</i></p>
+
+    <div class="plan-row">
+      <span class="plan-pill">当日计划</span>
+      <p id="planText">11/10（周二）· Day 1 ｜ 07:40 起飞 → 11:30 落地丽江 → 13:02 高铁 → 14:25 抵香格里拉</p>
+      <a id="planLink" href="#d1">看详情 →</a>
+    </div>
+
+    <p class="now-foot">
+      <noscript>（本页需要浏览器开启 JavaScript 才能显示倒计时。）</noscript>
+    </p>
+  </section>
+
+  <!-- ================= ② 行程总览 + 简易地图 ================= -->
+  <h2 class="title" id="overview"><span class="emo">🗺️</span>行程总览</h2>
+
+  <div class="card map-card">
+    <p class="map-intro">从杭州出发，经丽江中转进入滇西北：先抵香格里拉适应海拔，再翻山前往四川稻城亚丁看雪山海子，随后原路返回，最后一天高铁接晚班机回杭州。</p>
+
+    <svg class="map" viewBox="0 0 560 400" role="img" aria-label="Day 1–5 每日路线示意图：杭州 ⇄ 丽江、丽江 ⇄ 香格里拉、香格里拉 ⇄ 稻城亚丁">
+      <defs>
+        <marker id="ahR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--red)"/>
+        </marker>
+        <marker id="ahG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--gold)"/>
+        </marker>
+        <marker id="ahB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--blue)"/>
+        </marker>
+        <marker id="ahP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--plum)"/>
+        </marker>
+      </defs>
+
+      <!-- 经纬网格（示意） -->
+      <g stroke="var(--line)" stroke-width="1">
+        <path d="M90 30V372 M170 30V372 M250 30V372 M330 30V372 M410 30V372 M490 30V372"/>
+        <path d="M60 60H530 M60 140H530 M60 220H530 M60 300H530"/>
+      </g>
+
+      <!-- 指北针 -->
+      <g transform="translate(70,326)">
+        <path d="M0 14 L0 -6" stroke="var(--brown)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M0 -12 L5 -1 L0 2 L-5 -1 Z" fill="var(--brown)"/>
+        <text x="0" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-3)">N</text>
+      </g>
+
+      <!-- 飞行段（灰虚线 · 往返已订） -->
+      <path d="M468 122 Q352 130 256 284" fill="none" stroke="var(--ink-3)" stroke-width="2.6" stroke-dasharray="8 7" stroke-linecap="round"/>
+      <path d="M250 296 Q368 206 462 132" fill="none" stroke="var(--ink-3)" stroke-width="2.6" stroke-dasharray="3 6" stroke-linecap="round"/>
+      <text x="356" y="162" text-anchor="middle" font-size="15">✈️</text>
+      <text x="360" y="212" text-anchor="middle" font-size="15">✈️</text>
+
+      <!-- D1 · 丽江 → 香格里拉（高铁） -->
+      <path d="M236 284 Q206 250 180 208" fill="none" stroke="var(--red)" stroke-width="3.4" stroke-linecap="round" marker-end="url(#ahR)"/>
+      <!-- D5 · 香格里拉 → 丽江（高铁返程） -->
+      <path d="M170 216 Q192 268 230 298" fill="none" stroke="var(--plum)" stroke-width="3.4" stroke-linecap="round" marker-end="url(#ahP)"/>
+      <!-- D2 · 香格里拉 → 亚丁（大巴） -->
+      <path d="M178 192 Q198 140 248 122" fill="none" stroke="var(--gold)" stroke-width="3.4" stroke-linecap="round" marker-end="url(#ahG)"/>
+      <!-- D4 · 亚丁 → 香格里拉（大巴返程） -->
+      <path d="M258 130 Q238 170 186 202" fill="none" stroke="var(--blue)" stroke-width="3.4" stroke-linecap="round" marker-end="url(#ahB)"/>
+      <!-- D3 · 亚丁全天游玩（虚线环） -->
+      <circle cx="272" cy="112" r="18" fill="none" stroke="var(--sage)" stroke-width="3" stroke-dasharray="6 6"/>
+
+      <!-- 每日小标签 -->
+      <g font-size="12" font-weight="800" text-anchor="middle">
+        <text x="222" y="240" fill="var(--red)">D1</text>
+        <text x="180" y="276" fill="var(--plum)">D5</text>
+        <text x="196" y="142" fill="var(--gold)">D2</text>
+        <text x="242" y="176" fill="var(--blue)">D4</text>
+        <text x="302" y="100" fill="var(--sage)">D3</text>
+      </g>
+
+      <!-- 城市节点 -->
+      <g font-weight="800" fill="var(--ink)">
+        <circle cx="475" cy="124" r="7" fill="var(--brown)" stroke="var(--card)" stroke-width="3"/>
+        <text x="475" y="88" text-anchor="middle" font-size="17">杭州</text>
+        <text x="475" y="105" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink-3)">浙江省 · HGH</text>
+
+        <circle cx="245" cy="296" r="7" fill="var(--brown)" stroke="var(--card)" stroke-width="3"/>
+        <text x="245" y="328" text-anchor="middle" font-size="17">丽江</text>
+        <text x="245" y="346" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink-3)">云南省 · 三义机场</text>
+
+        <circle cx="172" cy="202" r="7" fill="var(--brown)" stroke="var(--card)" stroke-width="3"/>
+        <text x="152" y="196" text-anchor="end" font-size="17">香格里拉</text>
+        <text x="152" y="214" text-anchor="end" font-size="11.5" font-weight="700" fill="var(--ink-3)">云南省 · 迪庆</text>
+
+        <circle cx="262" cy="116" r="7" fill="var(--sage)" stroke="var(--card)" stroke-width="3"/>
+        <text x="262" y="72" text-anchor="middle" font-size="17">稻城亚丁</text>
+        <text x="262" y="89" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink-3)">四川省 · 香格里拉镇</text>
+      </g>
+    </svg>
+
+    <!-- 分日图例 -->
+    <div class="map-leg">
+      <div class="lgd"><i class="fly"></i><span><b>飞行段</b> · 11/10 HGH→LJG（已订）／ 11/14 LJG→HGH（已订）</span></div>
+      <div class="lgd" style="--c:var(--red)"><i></i><span><b>D1</b> · 11/10 丽江 → 香格里拉 · 高铁 1h23m 🚄</span></div>
+      <div class="lgd" style="--c:var(--gold)"><i></i><span><b>D2</b> · 11/11 香格里拉 → 亚丁 · 大巴 6–8h 🚌</span></div>
+      <div class="lgd" style="--c:var(--sage)"><i></i><span><b>D3</b> · 11/12 稻城亚丁 · 全天游玩 📸</span></div>
+      <div class="lgd" style="--c:var(--blue)"><i></i><span><b>D4</b> · 11/13 亚丁 → 香格里拉 · 大巴 6–8h 🚌</span></div>
+      <div class="lgd" style="--c:var(--plum)"><i></i><span><b>D5</b> · 11/14 香格里拉 → 丽江 · 高铁 ＋ 17:05 航班 ✈️</span></div>
+    </div>
+
+    <p class="map-note">
+      示意图：按真实相对方位绘制（香格里拉在丽江西北，亚丁在香格里拉东北），不按比例；实际航线与公路并非直线。
+    </p>
+  </div>
+
+  <!-- 极简行程 -->
+  <ul class="mini">
+    <li style="--c:var(--red)">
+      <i class="mdot"></i>
+      <div>
+        <b><em>D1</em>11/10 周二 · 杭州 → 香格里拉</b>
+        <span>早班机 07:40 起飞 · 高铁 F 座看虎跳峡 · 住古城</span>
+      </div>
+      <span class="m">✈️＋🚄</span>
+    </li>
+    <li style="--c:var(--gold)">
+      <i class="mdot"></i>
+      <div>
+        <b><em>D2</em>11/11 周三 · 香格里拉 → 亚丁</b>
+        <span>08:00 大巴 · 迪庆交通小程序购票 · 住香格里拉镇</span>
+      </div>
+      <span class="m">🚌 6–8h</span>
+    </li>
+    <li style="--c:var(--sage)">
+      <i class="mdot"></i>
+      <div>
+        <b><em>D3</em>11/12 周四 · 稻城亚丁游玩</b>
+        <span>全天 · 约 17:00–20:00 结束回镇</span>
+      </div>
+      <span class="m">📸 全天</span>
+    </li>
+    <li style="--c:var(--blue)">
+      <i class="mdot"></i>
+      <div>
+        <b><em>D4</em>11/13 周五 · 亚丁 → 香格里拉</b>
+        <span>06:25 大巴返程 · 前一晚早点休息</span>
+      </div>
+      <span class="m">🚌 6–8h</span>
+    </li>
+    <li style="--c:var(--plum)">
+      <i class="mdot"></i>
+      <div>
+        <b><em>D5</em>11/14 周六 · 香格里拉 → 杭州</b>
+        <span>高铁 13:46 → 17:05 起飞 · 21:35 落地</span>
+      </div>
+      <span class="m">🚄＋✈️</span>
+    </li>
+  </ul>
+
+  <!-- ================= 一键唤起地图导航 ================= -->
+  <h2 class="title" id="nav"><span class="emo">🧭</span>一键唤起地图</h2>
+
+  <div class="card nav-card">
+    <div class="nseg">
+      <div class="t"><b>D1 · 11/10 丽江三义机场 → 丽江站</b><span>打车约 30 分钟（¥50）· 赶 13:02 高铁</span></div>
+      <div class="napps" data-from="100.2545,26.6804,丽江三义机场" data-to="100.2340,26.8010,丽江站"></div>
+    </div>
+    <div class="nseg">
+      <div class="t"><b>D2 · 11/11 香格里拉客运站 → 稻城亚丁游客中心</b><span>大巴 6–8h · 路线预览（实际乘客运大巴）</span></div>
+      <div class="napps" data-from="99.7060,27.8220,香格里拉客运站" data-to="100.0800,28.4550,稻城亚丁游客中心"></div>
+    </div>
+    <div class="nseg">
+      <div class="t"><b>D4 · 11/13 稻城亚丁游客中心 → 香格里拉客运站</b><span>大巴 6–8h · 返程路线预览</span></div>
+      <div class="napps" data-from="100.0800,28.4550,稻城亚丁游客中心" data-to="99.7060,27.8220,香格里拉客运站"></div>
+    </div>
+    <div class="nseg">
+      <div class="t"><b>D5 · 11/14 丽江站 → 丽江三义机场</b><span>打车约 30 分钟（¥50）· 赶 17:05 航班</span></div>
+      <div class="napps" data-from="100.2340,26.8010,丽江站" data-to="100.2545,26.6804,丽江三义机场"></div>
+    </div>
+
+    <p class="nav-tip">📱 手机浏览器点按会直接唤起对应地图 App 并预填路线（未安装则打开网页版）；电脑上打开网页版地图。高铁段（丽江 ⇄ 香格里拉）与航班段无法导航，按票面乘车即可。</p>
+  </div>
+
+  <!-- ================= 行程安排 ================= -->
+  <h2 class="title"><span class="emo">🗓️</span>每天行程</h2>
+
+  <!-- DAY 1 -->
+  <article class="card day" id="d1">
+    <div class="day-head">
+      <span class="badge">DAY 1</span>
+      <h2>到香格里拉</h2>
+      <span class="cost">¥880<small> 起</small></span>
+    </div>
+    <ul class="steps">
+
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">✈️</span></span><span class="node-label">飞机</span></div>
+        <div class="detail">
+          <strong>杭州萧山 HGH → 丽江三义 LJG</strong>
+          <span>两个班次二选一，落地后打车去丽江站</span>
+
+          <div class="tk-wrap">
+            <article class="ticket" data-carrier="jd">
+              <div class="tk-head">
+                <span class="tk-code">JD</span>
+                <div class="tk-carrier"><strong>首都航空 · JD5191</strong><span>上午航班</span></div>
+                <span class="tk-fare">¥760</span>
+              </div>
+              <div class="tk-body">
+                <div class="tk-port"><b>HGH</b><span>杭州萧山</span><em>07:40</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>3h50m</span></div>
+                <div class="tk-port to"><b>LJG</b><span>丽江三义</span><em>11:30</em></div>
+              </div>
+              <div class="tk-stub">
+                <span class="chip off">🍱 不含餐食</span>
+                <span class="tk-tag">上午班次</span>
+              </div>
+            </article>
+
+            <article class="ticket" data-carrier="ca">
+              <div class="tk-head">
+                <span class="tk-code">CA</span>
+                <div class="tk-carrier"><strong>国航 · CA8517</strong><span>下午航班</span></div>
+                <span class="tk-fare">¥920</span>
+              </div>
+              <div class="tk-body">
+                <div class="tk-port"><b>HGH</b><span>杭州萧山</span><em>14:55</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>3h35m</span></div>
+                <div class="tk-port to"><b>LJG</b><span>丽江三义</span><em>18:30</em></div>
+              </div>
+              <div class="tk-stub">
+                <span class="chip">🍱 含小食</span>
+                <span class="tk-tag">比上午贵 ¥160</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚕</span></span><span class="node-label">打车</span></div>
+        <div class="detail">
+          <strong>三义机场 → 丽江站 · ¥50</strong>
+          <span>约 30 分钟</span>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚄</span></span><span class="node-label">高铁</span></div>
+        <div class="detail">
+          <strong>丽江 → 香格里拉 · ¥70</strong>
+          <span>上午场 13:02 → 14:25 ｜ 下午场 21:12 → 22:25</span>
+          <span><span class="mark"><span class="hl">推荐 F 座靠窗</span></span>，能看到虎跳峡</span>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
+        <div class="detail">
+          <strong>住香格里拉古城</strong>
+          <span>酒店 + 自由活动，当晚适应海拔</span>
+        </div>
+      </li>
+    </ul>
+  </article>
+
+  <!-- DAY 2 -->
+  <article class="card day" id="d2">
+    <div class="day-head">
+      <span class="badge">DAY 2</span>
+      <h2>香格里拉 → 亚丁（香格里拉镇）</h2>
+      <span class="cost">¥148</span>
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚌</span></span><span class="node-label">大巴</span></div>
+        <div class="detail">
+          <strong>早上 8:00 发车 · ¥148</strong>
+          <span>最晚 6–8 小时 ｜ 购票：迪庆交通小程序</span>
+          <span>或者<span class="hl">加钱换轿车 / 商务车</span>，更快更灵活</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
+        <div class="detail"><strong>住亚丁，酒店 + 自由活动</strong></div>
+      </li>
+    </ul>
+  </article>
+
+  <!-- DAY 3 -->
+  <article class="card day" id="d3">
+    <div class="day-head">
+      <span class="badge">DAY 3</span>
+      <h2>稻城亚丁游玩</h2>
+      <span class="cost">¥10</span>
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚐</span></span><span class="node-label">接驳</span></div>
+        <div class="detail">
+          <strong>酒店送至稻城亚丁</strong>
+          <span>或 <span class="mark"><span class="hl">¥10 / 人</span></span> 的小黄车到稻城亚丁门口</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="node"><span class="node-ic play"><span class="emo">📸</span></span><span class="node-label">游玩</span></div>
+        <div class="detail">
+          <strong>稻城亚丁一整天</strong>
+          <span>预计晚上 17:00–20:00 结束，打车回亚丁镇 + 吃饭</span>
+        </div>
+      </li>
+    </ul>
+  </article>
+
+  <!-- DAY 4 -->
+  <article class="card day" id="d4">
+    <div class="day-head">
+      <span class="badge">DAY 4</span>
+      <h2>返回香格里拉</h2>
+      <span class="cost">¥148</span>
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚌</span></span><span class="node-label">大巴</span></div>
+        <div class="detail">
+          <strong>早上 06:25 发车 · ¥148</strong>
+          <span>最晚 6–8 小时，前一晚早点休息</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
+        <div class="detail"><strong>住香格里拉，酒店 + 自由活动</strong></div>
+      </li>
+    </ul>
+  </article>
+
+  <!-- DAY 5 -->
+  <article class="card day" id="d5">
+    <div class="day-head">
+      <span class="badge">DAY 5</span>
+      <h2>返回丽江 → 杭州</h2>
+      <span class="cost">¥1173</span>
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="node"><span class="node-ic play"><span class="emo">☕</span></span><span class="node-label">白天</span></div>
+        <div class="detail"><strong>上午自由活动休息，或去玩 + 吃午饭</strong></div>
+      </li>
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚄</span></span><span class="node-label">高铁</span></div>
+        <div class="detail">
+          <strong>香格里拉 → 丽江 · ¥70</strong>
+          <span>13:46 → 15:26</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">🚕</span></span><span class="node-label">打车</span></div>
+        <div class="detail">
+          <strong>丽江站 → 三义机场 · ¥50</strong>
+          <span>约 30 分钟</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="node"><span class="node-ic"><span class="emo">✈️</span></span><span class="node-label">飞机</span></div>
+        <div class="detail">
+          <strong>丽江三义 LJG → 杭州萧山 HGH</strong>
+          <span>当天最后一段，衔接紧凑，建议提前值机</span>
+
+          <div class="tk-wrap">
+            <article class="ticket" data-carrier="gj">
+              <div class="tk-head">
+                <span class="tk-code">GJ</span>
+                <div class="tk-carrier"><strong>长龙航空 · GJ8644</strong><span>返程航班</span></div>
+                <span class="tk-fare">¥1053</span>
+              </div>
+              <div class="tk-body">
+                <div class="tk-port"><b>LJG</b><span>丽江三义</span><em>17:05</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>4h30m</span></div>
+                <div class="tk-port to"><b>HGH</b><span>杭州萧山</span><em>21:35</em></div>
+              </div>
+              <div class="tk-stub">
+                <span class="chip">🍱 含小食</span>
+                <span class="tk-tag">当天 21:35 落地</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </article>
+
+  <!-- ================= 费用 ================= -->
+  <h2 class="title" id="cost"><span class="emo">💸</span>费用明细</h2>
+
+  <div class="card total">
+    <span class="lbl">合计</span>
+    <b class="big"><span class="mark">¥3159</span></b>
+    <span class="desc">交通 ¥2359 ＋ 住宿 ¥800（200/晚 × 4 晚）</span>
+    <div class="split">
+      <div><span>交通</span><b>¥2359</b></div>
+      <div><span>住宿</span><b>¥800</b></div>
+      <div><span>日均</span><b>≈ ¥632</b></div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>项目</th><th>金额（元）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Day 1 交通（首都航空 JD5191）</td><td>880</td></tr>
+        <tr class="sub"><td>改乘国航 CA8517</td><td>1040（+160）</td></tr>
+        <tr><td>Day 2 交通</td><td>148</td></tr>
+        <tr><td>Day 3 交通</td><td>10</td></tr>
+        <tr><td>Day 4 交通</td><td>148</td></tr>
+        <tr><td>Day 5 交通（长龙航空 GJ8644）</td><td>1173</td></tr>
+        <tr class="sub"><td>交通小计</td><td>2359</td></tr>
+        <tr><td>住宿（¥200 × 4 晚）</td><td>800</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>合计</td><td>¥3159</td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ================= 温馨提示 ================= -->
+  <h2 class="title" id="tips"><span class="emo">📌</span>温馨提示</h2>
+  <div class="tips">
+    <ol>
+      <li>高铁一定选 <strong>F 座靠窗</strong>，丽江到香格里拉段能看虎跳峡。</li>
+      <li>去亚丁的大巴在 <strong>迪庆交通小程序</strong> 买票，早上 8:00 发车，148 元，山路最晚 6–8 小时；赶时间可以加钱换轿车/商务车。</li>
+      <li>回程大巴 <strong>06:25</strong> 发车，同样 148 元，前一晚早点休息。</li>
+      <li>亚丁景区门口这段：让酒店送，或者坐 10 元/人的小黄车。</li>
+      <li>景区游玩预计 17:00–20:00 结束，回亚丁镇还要打车 + 吃饭，别排太满。</li>
+      <li>最后一天最紧：高铁 13:46 到丽江 → 打车 30 分钟到三义 → 17:05 起飞，值机、安检、登机建议留足缓冲。</li>
+      <li>三段航班里只有 <strong>CA8517</strong> 和 <strong>GJ8644</strong> 含小食，<strong>JD5191 不含餐食</strong>，早班机记得先吃点东西或自备。</li>
+    </ol>
+  </div>
+
+  <p class="note">
+    <b>💡 小贴士</b>
+    金额为攻略记录值，实际以购票当天价格为准；住宿按 200 元/晚估算。航班时刻与起降机场请以机票行程单为准。亚丁海拔较高（约 3900–4600m），注意高反与保暖。
+  </p>
+
+  <footer>2026.11.10 – 11.14 香格里拉 + 稻城亚丁 · 5天4晚</footer>
+</main>
+
+<script>
+(function(){
+  /* ==========================================================
+     ★ 出发日期只改这一行：Day 1 的日期（北京时间）
+     ========================================================== */
+  var DAY1 = '2026-11-10';
+
+  /* 行程时间轴：sd/s = 起始「第几天偏移 + 北京时刻」，ed/e = 结束
+     全部按攻略里的时刻推算，跨夜段以「住宿 + 自由活动」计。 */
+  var PLAN = [
+    {sd:0,s:'07:40',ed:0,e:'11:30',day:1,m:'✈️',t:'飞机 · 杭州萧山 → 丽江三义',x:'首都航空 JD5191（不含餐食）· 3h50m'},
+    {sd:0,s:'11:30',ed:0,e:'13:02',day:1,m:'🚕',t:'打车 · 三义机场 → 丽江站',x:'车程约 30 分钟 · ¥50，剩下时间候车'},
+    {sd:0,s:'13:02',ed:0,e:'14:25',day:1,m:'🚄',t:'高铁 · 丽江 → 香格里拉',x:'¥70 · 推荐 F 座靠窗，能看虎跳峡'},
+    {sd:0,s:'14:25',ed:1,e:'08:00',day:1,m:'🏨',t:'香格里拉古城 · 住宿 + 自由活动',x:'当晚适应海拔，为后面两天留体力'},
+    {sd:1,s:'08:00',ed:1,e:'16:00',day:2,m:'🚌',t:'大巴 · 香格里拉 → 亚丁（香格里拉镇）',x:'¥148 · 最晚 6–8 小时 · 迪庆交通小程序购票'},
+    {sd:1,s:'16:00',ed:2,e:'08:00',day:2,m:'🏨',t:'亚丁 · 住宿 + 自由活动',x:'次日一早就进景区'},
+    {sd:2,s:'08:00',ed:2,e:'18:00',day:3,m:'📸',t:'稻城亚丁 · 全天游玩',x:'预计 17:00–20:00 结束，回亚丁镇打车 + 吃饭'},
+    {sd:2,s:'18:00',ed:3,e:'06:25',day:3,m:'🏨',t:'回亚丁镇 · 吃饭 + 住宿',x:'次日 06:25 发车，早点休息'},
+    {sd:3,s:'06:25',ed:3,e:'14:00',day:4,m:'🚌',t:'大巴 · 亚丁 → 香格里拉',x:'¥148 · 最晚 6–8 小时'},
+    {sd:3,s:'14:00',ed:4,e:'10:00',day:4,m:'🏨',t:'香格里拉 · 住宿 + 自由活动',x:'行程里最后的自由时间'},
+    {sd:4,s:'10:00',ed:4,e:'13:46',day:5,m:'☕',t:'上午自由活动 / 吃午饭',x:'之后赶 13:46 的高铁回丽江'},
+    {sd:4,s:'13:46',ed:4,e:'15:26',day:5,m:'🚄',t:'高铁 · 香格里拉 → 丽江',x:'¥70'},
+    {sd:4,s:'15:26',ed:4,e:'17:05',day:5,m:'🚕',t:'打车到三义机场 + 值机候机',x:'约 30 分钟车程，衔接紧凑'},
+    {sd:4,s:'17:05',ed:4,e:'21:35',day:5,m:'✈️',t:'飞机 · 丽江三义 → 杭州萧山',x:'长龙航空 GJ8644（含小食）· 落地即行程结束'}
+  ];
+
+  /* 每日极简计划（倒计时卡片「当日计划」用，按 Day 1 日期自动推算） */
+  var DAY_PLAN = {
+    1:'07:40 起飞 → 11:30 落地丽江 → 13:02 高铁 → 14:25 抵香格里拉 · 住古城',
+    2:'08:00 大巴出发（6–8h）→ 傍晚抵亚丁 · 住香格里拉镇',
+    3:'全天稻城亚丁游玩 · 17:00–20:00 结束 · 回镇吃饭住宿',
+    4:'06:25 大巴返程（6–8h）→ 午后抵香格里拉 · 自由活动',
+    5:'上午自由 → 13:46 高铁 → 15:26 到丽江 → 17:05 起飞 → 21:35 落地杭州'
+  };
+
+  function ts(off,hm){
+    var p=DAY1.split('-'), q=hm.split(':');
+    return Date.UTC(+p[0], +p[1]-1, +p[2]+off, +q[0]-8, +q[1], 0);
+  }
+  for(var i=0;i<PLAN.length;i++){ PLAN[i].S=ts(PLAN[i].sd,PLAN[i].s); PLAN[i].E=ts(PLAN[i].ed,PLAN[i].e); }
+  var T0=PLAN[0].S, T1=PLAN[PLAN.length-1].E;
+
+  var $=function(id){ return document.getElementById(id); };
+  var pad=function(n){ return (n<10?'0':'')+n; };
+  var WD=['周日','周一','周二','周三','周四','周五','周六'];
+  function dayInfo(n){
+    var p=DAY1.split('-');
+    var d=new Date(Date.UTC(+p[0], +p[1]-1, +p[2]+n-1));
+    return (d.getUTCMonth()+1)+'/'+d.getUTCDate()+'（'+WD[d.getUTCDay()]+'）';
+  }
+
+  function tick(){
+    var now=Date.now(), bj=new Date(now+8*3600e3);
+    $('clock').textContent = pad(bj.getUTCHours())+':'+pad(bj.getUTCMinutes())+':'+pad(bj.getUTCSeconds());
+
+    var title, sub, target, planTxt, href, i;
+
+    if(now < T0){
+      /* 出发前：锁定 11/10 早班机倒计时 */
+      title='HGH ✈️ LJG 起飞';
+      sub='首都航空 JD5191 · 3h50m 直飞 · 建议 06:10 前到机场';
+      target=T0;
+      planTxt=dayInfo(1)+' · Day 1 ｜ '+DAY_PLAN[1];
+      href='#d1';
+    } else if(now <= T1){
+      /* 行程中：显示当前节点 + 下一节点倒计时 */
+      var cur=PLAN[PLAN.length-1], nx=null;
+      for(i=0;i<PLAN.length;i++){
+        if(now>=PLAN[i].S && now<PLAN[i].E) cur=PLAN[i];
+        if(!nx && PLAN[i].S>now) nx=PLAN[i];
+      }
+      target = nx ? nx.S : T1;
+      title=cur.m+' '+cur.t;
+      sub = nx ? '下一节点 '+nx.s+' · '+nx.t : cur.x;
+      planTxt='Day '+cur.day+' '+dayInfo(cur.day)+' ｜ '+DAY_PLAN[cur.day];
+      href='#d'+cur.day;
+    } else {
+      title='🏠 行程已结束';
+      sub='5 天 4 晚 · 11/14 21:35 落地杭州';
+      target=null;
+      planTxt='11/10 – 11/14 · 香格里拉 + 稻城亚丁 ｜ 下次出发前再回看这份攻略';
+      href='#overview';
+    }
+
+    var diff = target ? Math.max(0, target-now) : 0;
+    var sec = Math.floor(diff/1000);
+    $('cdTitle').textContent = title;
+    $('cdSub').textContent = sub;
+    $('cdD').textContent = Math.floor(sec/86400);
+    $('cdT').textContent = pad(Math.floor(sec%86400/3600))+':'+pad(Math.floor(sec%3600/60))+':'+pad(sec%60);
+    $('planText').textContent = planTxt;
+    $('planLink').setAttribute('href', href);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* 一键唤起地图：按 data-from / data-to（GCJ-02 经纬度）生成 高德 / 百度 / 腾讯 深链 */
+  (function(){
+    var segs=document.querySelectorAll('.napps');
+    function enc(s){ return encodeURIComponent(s); }
+    for(var i=0;i<segs.length;i++){
+      var f=segs[i].getAttribute('data-from').split(','), t=segs[i].getAttribute('data-to').split(',');
+      var flng=f[0], flat=f[1], fn=enc(f[2]);
+      var tlng=t[0], tlat=t[1], tn=enc(t[2]);
+      var gaode='https://uri.amap.com/navigation?from='+flng+','+flat+','+fn+'&to='+tlng+','+tlat+','+tn+'&mode=car&src=trip2026&coordinate=gaode&callnative=1';
+      var baidu='https://api.map.baidu.com/direction?origin=latlng:'+flat+','+flng+'|name:'+fn+'&destination=latlng:'+tlat+','+tlng+'|name:'+tn+'&mode=driving&output=html&coord_type=gcj02&src=trip2026';
+      var qq='https://apis.map.qq.com/uri/v1/routeplan?plan=drive&from='+fn+'&fromcoord='+flat+','+flng+'&to='+tn+'&tocoord='+tlat+','+tlng+'&referer=trip2026';
+      segs[i].innerHTML =
+        '<a class="napp" target="_blank" rel="noopener" href="'+gaode+'">🟠 高德</a>'+
+        '<a class="napp" target="_blank" rel="noopener" href="'+baidu+'">🔵 百度</a>'+
+        '<a class="napp" target="_blank" rel="noopener" href="'+qq+'">🟢 腾讯</a>';
+    }
+  })();
+})();
+</script>
+</body>
+</html>
