@@ -164,6 +164,19 @@
   .nav-hint{flex:none; align-self:flex-start; margin-top:5px; font-size:13px; opacity:.5; transition:opacity .15s ease}
   a.step-link:hover .nav-hint{opacity:1}
 
+  /* 古城漫游路线清单 */
+  .route-list{margin:10px 0 0; padding:10px 12px; background:var(--card-2); border-radius:12px; display:grid; gap:5px; list-style:none; counter-reset:st}
+  .route-list li{position:relative; display:flex; align-items:center; gap:10px; padding-left:27px; font-size:13px; line-height:1.5}
+  .route-list li::before{counter-increment:st; content:counter(st); position:absolute; left:0; top:50%; margin-top:-9px; width:18px; height:18px; border-radius:50%; background:var(--sage-soft); color:#4F6B5F; font-size:11px; font-weight:800; display:grid; place-items:center}
+  .route-list .rt{flex:1; min-width:0}
+  .route-list b{font-weight:750}
+  .route-list span{color:var(--ink-3); font-size:12px}
+
+  /* 漫游环线示意图 */
+  .roam-map{margin:10px 0 2px; background:var(--card-2); border-radius:12px; padding:10px 10px 6px; position:relative}
+  .roam-map svg{display:block; width:100%; height:auto}
+  .roam-map .rm-note{position:absolute; right:13px; bottom:9px; font-size:11px; color:var(--ink-3)}
+
   /* ================= 日程卡 ================= */
   .day{padding:20px 20px 12px; margin-bottom:16px; scroll-margin-top:74px}
   .day-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:14px; border-bottom:1px dashed var(--line)}
@@ -628,6 +641,62 @@
           <strong>住香格里拉古城</strong>
           <span>酒店 + 自由活动，当晚适应海拔</span>
         </div>
+      </li>
+
+      <li class="step">
+        <a class="step-link" href="https://guinness.autonavi.com/activity/2020CommonLanding/index.html?id=default&amp;local=1&amp;logId=&amp;logParams=&amp;gd_from=jinisi&amp;schema=amapuri%3A%2F%2Fajx_favorites%2Ffolder%3Fdata%3D%257B%2522ugcId%2522%253A%252204647726260321428664%2522%252C%2522forceCustom%2522%253Atrue%252C%2522pathId%2522%253A6%257D&amp;share_from=favorites_FavoriteFolder&amp;share_from_type=AJX&amp;share_type=image&amp;share_lastClickSpm=" target="_blank" rel="noopener" title="点击打开高德地图 · 古城漫游 7 站完整路线">
+          <div class="node"><span class="node-ic play"><span class="emo">🚶</span></span><span class="node-label">漫游</span></div>
+          <div class="detail">
+            <strong>古城漫游 · 酒店安顿后出发（约 15:30）</strong>
+            <span>全程顺路环线（1 → 7 站连线）｜ 点击整个卡片 → 高德打开完整路线</span>
+
+          <div class="roam-map">
+            <svg viewBox="0 0 340 240" role="img" aria-label="独克宗古城漫游环线示意图">
+              <polyline points="85,98 246,86 258,60 268,38 155,151 60,173 170,199" fill="none" stroke="#7FA08C" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round" stroke-linecap="round"/>
+              <g font-size="10" font-weight="800" text-anchor="middle">
+                <circle cx="85" cy="98" r="9" fill="#fff" stroke="#7FA08C" stroke-width="2"/><text x="85" y="101.5" fill="#4F6B5F">1</text>
+                <circle cx="246" cy="86" r="9" fill="#fff" stroke="#7FA08C" stroke-width="2"/><text x="246" y="89.5" fill="#4F6B5F">2</text>
+                <circle cx="258" cy="60" r="9" fill="#fff" stroke="#7FA08C" stroke-width="2"/><text x="258" y="63.5" fill="#4F6B5F">3</text>
+                <circle cx="268" cy="38" r="9" fill="#fff" stroke="#7FA08C" stroke-width="2"/><text x="268" y="41.5" fill="#4F6B5F">4</text>
+                <circle cx="155" cy="151" r="9" fill="#fff" stroke="#7FA08C" stroke-width="2"/><text x="155" y="154.5" fill="#4F6B5F">5</text>
+                <circle cx="60" cy="173" r="9" fill="#fff" stroke="#7FA08C" stroke-width="2"/><text x="60" y="176.5" fill="#4F6B5F">6</text>
+                <circle cx="170" cy="199" r="9" fill="#fff" stroke="#C9922F" stroke-width="2"/><text x="170" y="202.5" fill="#C9922F">7</text>
+              </g>
+              <g font-size="11" font-weight="600">
+                <text x="85" y="122" text-anchor="middle" fill="#4F6B5F">阿妈酥油茶 · 出发</text>
+                <text x="234" y="72" text-anchor="end" fill="#4F6B5F">龟山公园</text>
+                <text x="170" y="186" text-anchor="middle" fill="#C9922F">月光广场 · 夜景终点</text>
+              </g>
+            </svg>
+            <span class="rm-note">示意环线 · 按真实方位绘制，步行约 1–1.5h</span>
+          </div>
+
+          <ol class="route-list">
+            <li>
+              <div class="rt"><b>阿妈酥油茶</b><span>· 下午茶开场，先暖暖胃（酒店就在古城内，步行可达）</span></div>
+            </li>
+            <li>
+              <div class="rt"><b>龟山公园</b><span>· 从古城步行上山</span></div>
+            </li>
+            <li>
+              <div class="rt"><b>大佛寺</b><span>· 顺时针逛</span></div>
+            </li>
+            <li>
+              <div class="rt"><b>最大转经筒</b><span>· 需提前在小程序「独克宗古城」预约 · 19:00 亮灯</span></div>
+            </li>
+            <li>
+              <div class="rt"><b>古城非遗志体验中心</b><span>· 下山后顺路逛馆</span></div>
+            </li>
+            <li>
+              <div class="rt"><b>桑珠咖啡</b><span>· 打卡休息，等天黑</span></div>
+            </li>
+            <li>
+              <div class="rt"><b>月光广场</b><span>· 晚上夜景；19:00 后可再上龟山公园看亮灯</span></div>
+            </li>
+          </ol>
+          </div>
+          <span class="nav-hint">🧭</span>
+        </a>
       </li>
     </ul>
   </article>
