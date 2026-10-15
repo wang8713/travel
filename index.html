@@ -157,16 +157,12 @@
   .mini span{display:block; margin-top:2px; font-size:12.5px; color:var(--ink-3)}
   .mini .m{flex:none; margin-left:auto; font-size:13px; font-weight:750; color:var(--ink-2); white-space:nowrap}
 
-  /* ================= 一键唤起地图 ================= */
-  .nav-card{overflow:hidden}
-  .nseg{display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:13px 16px; border-bottom:1px dashed var(--line)}
-  .nseg .t{flex:1 1 220px; min-width:0}
-  .nseg b{display:block; font-size:14.5px; font-weight:750; line-height:1.5}
-  .nseg span{display:block; margin-top:2px; font-size:12px; color:var(--ink-3)}
-  .napps{display:flex; gap:7px; flex-wrap:wrap}
-  .napp{font-size:12.5px; font-weight:750; text-decoration:none; padding:6px 12px; border-radius:10px; background:var(--card-2); border:1px solid var(--line); color:var(--brown-deep)}
-  .napp:hover{border-color:var(--brown); color:var(--brown)}
-  .nav-tip{margin:0; padding:11px 16px 14px; font-size:12px; color:var(--ink-3)}
+  /* ================= 行程节点 · 点击整块跳转高德地图 ================= */
+  a.step-link{flex:1; min-width:0; display:flex; gap:13px; text-decoration:none; color:inherit; cursor:pointer; border-radius:12px; padding:4px; margin:-4px; transition:background .15s ease}
+  a.step-link:hover{background:color-mix(in srgb, var(--brown) 7%, transparent)}
+  .step-link .detail{flex:1}
+  .nav-hint{flex:none; align-self:flex-start; margin-top:5px; font-size:13px; opacity:.5; transition:opacity .15s ease}
+  a.step-link:hover .nav-hint{opacity:1}
 
   /* ================= 日程卡 ================= */
   .day{padding:20px 20px 12px; margin-bottom:16px; scroll-margin-top:74px}
@@ -200,8 +196,9 @@
   .ticket[data-carrier="jd"]{--tk:#C2603F}
   .ticket[data-carrier="ca"]{--tk:#5E7C93}
   .ticket[data-carrier="gj"]{--tk:#6E9184}
+  .ticket[data-carrier="rl"]{--tk:#C9922F}
   .tk-head{display:flex; align-items:center; gap:10px; padding:11px 14px; background:color-mix(in srgb, var(--tk) 11%, var(--card)); border-bottom:1px solid color-mix(in srgb, var(--tk) 18%, transparent)}
-  .tk-code{flex:none; width:32px; height:32px; border-radius:10px; display:grid; place-items:center; font-size:12px; font-weight:800; color:#fff; background:var(--tk)}
+  .tk-code{flex:none; width:34px; height:34px; border-radius:11px; display:grid; place-items:center; font-size:13.5px; font-weight:900; letter-spacing:.02em; color:#fff; background:linear-gradient(135deg, color-mix(in srgb, var(--tk) 72%, #fff), var(--tk) 52%, color-mix(in srgb, var(--tk) 78%, #000)); box-shadow:0 3px 9px color-mix(in srgb, var(--tk) 38%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent)}
   .tk-carrier{flex:1; min-width:0; line-height:1.3}
   .tk-carrier strong{display:block; font-size:13.5px; font-weight:750}
   .tk-carrier span{display:block; font-size:11px; color:var(--ink-3)}
@@ -223,6 +220,24 @@
   .chip{display:inline-flex; align-items:center; gap:5px; flex:none; font-size:11px; font-weight:750; padding:3px 10px; border-radius:999px; background:var(--sage-soft); color:#4F6B5F}
   .chip.off{background:var(--card-2); color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px}
   .tk-tag{margin-left:auto; font-size:11px; color:var(--ink-3); white-space:nowrap}
+
+  /* ================= 待办清单 ================= */
+  .todo-card{padding:6px 10px; overflow:hidden}
+  .todo{position:relative; display:flex; gap:12px; align-items:flex-start; padding:13px 6px; border-bottom:1px dashed var(--line); cursor:pointer; border-radius:10px}
+  .todo:last-child{border-bottom:0}
+  .todo input{position:absolute; opacity:0; pointer-events:none}
+  .todo .cb{flex:none; width:21px; height:21px; border-radius:7px; border:2px solid color-mix(in srgb, var(--brown) 45%, var(--line)); background:var(--card); margin-top:1px; display:grid; place-items:center; transition:background .15s, border-color .15s}
+  .todo .cb::after{content:"✓"; font-size:13px; font-weight:900; color:#fff; opacity:0; transform:scale(.4); transition:.15s}
+  .todo input:checked ~ .cb{background:var(--sage); border-color:var(--sage)}
+  .todo input:checked ~ .cb::after{opacity:1; transform:scale(1)}
+  .todo .tx{flex:1; min-width:0}
+  .todo .tx b{display:block; font-size:14.5px; font-weight:750; line-height:1.5}
+  .todo .tx span{display:block; margin-top:2px; font-size:12.5px; color:var(--ink-3); line-height:1.6}
+  .todo input:checked ~ .tx b{text-decoration:line-through; text-decoration-thickness:1.5px; opacity:.72}
+  .todo .ok{flex:none; font-style:normal; font-size:11px; font-weight:800; border-radius:999px; padding:4px 11px; margin-top:2px; background:var(--brown-soft); color:var(--red); white-space:nowrap}
+  .todo .ok.did{display:none; background:var(--sage-soft); color:#4F6B5F}
+  .todo input:checked ~ .ok.wait{display:none}
+  .todo input:checked ~ .ok.did{display:inline-block}
 
   /* ================= 费用 ================= */
   .total{
@@ -292,9 +307,9 @@
     :root{--bg:#fff; --card:#fff; --card-2:#F8F4EF; --shadow:none; --shadow-sm:none}
     body{background:#fff; background-image:none}
     .chips{display:none}
-    .day,.table-wrap,.tips,.ticket,.total,.cover,.now,.mini,.map-card,.nav-card{break-inside:avoid}
+    .day,.table-wrap,.tips,.ticket,.total,.cover,.now,.mini,.map-card,.todo-card{break-inside:avoid}
     .page{padding-top:0; padding-bottom:0}
-    .cover,.day,.ticket,.badge,.cost,.node-ic,.chip,.total,table,tr.sub td,tfoot td,.now,.plan-pill,.cd-big,.mini,.lgd,.mdot,.napp,.map-card{
+    .cover,.day,.ticket,.badge,.cost,.node-ic,.chip,.total,table,tr.sub td,tfoot td,.now,.plan-pill,.cd-big,.mini,.lgd,.mdot,.todo .cb,.todo .ok,.map-card{
       -webkit-print-color-adjust:exact; print-color-adjust:exact;
     }
   }
@@ -322,7 +337,6 @@
   <nav class="chips" aria-label="页面导航">
     <a href="#now">⏳ 倒计时</a>
     <a href="#overview">🗺️ 行程总览</a>
-    <a href="#nav">🧭 导航</a>
     <a href="#d1">Day 1</a>
     <a href="#d2">Day 2</a>
     <a href="#d3">Day 3</a>
@@ -330,6 +344,7 @@
     <a href="#d5">Day 5</a>
     <a href="#cost">费用</a>
     <a href="#tips">提醒</a>
+    <a href="#todo">✅ 待办</a>
   </nav>
 
   <!-- ================= ① 倒计时 + 当日计划 ================= -->
@@ -490,35 +505,11 @@
       <i class="mdot"></i>
       <div>
         <b><em>D5</em>11/14 周六 · 香格里拉 → 杭州</b>
-        <span>高铁 13:46 → 17:05 起飞 · 21:35 落地</span>
+        <span>高铁 C986 13:46 → 17:05 起飞（经停达州）· 21:35 落地 T3</span>
       </div>
-      <span class="m">🚄＋✈️</span>
+      <span class="m">C986 高铁 + ✈️ 经停达州</span>
     </li>
   </ul>
-
-  <!-- ================= 一键唤起地图导航 ================= -->
-  <h2 class="title" id="nav"><span class="emo">🧭</span>一键唤起地图</h2>
-
-  <div class="card nav-card">
-    <div class="nseg">
-      <div class="t"><b>D1 · 11/10 丽江三义机场 → 丽江站</b><span>打车约 30 分钟（¥50）· 赶 13:02 高铁</span></div>
-      <div class="napps" data-from="100.2545,26.6804,丽江三义机场" data-to="100.2340,26.8010,丽江站"></div>
-    </div>
-    <div class="nseg">
-      <div class="t"><b>D2 · 11/11 香格里拉客运站 → 稻城亚丁游客中心</b><span>大巴 6–8h · 路线预览（实际乘客运大巴）</span></div>
-      <div class="napps" data-from="99.7060,27.8220,香格里拉客运站" data-to="100.0800,28.4550,稻城亚丁游客中心"></div>
-    </div>
-    <div class="nseg">
-      <div class="t"><b>D4 · 11/13 稻城亚丁游客中心 → 香格里拉客运站</b><span>大巴 6–8h · 返程路线预览</span></div>
-      <div class="napps" data-from="100.0800,28.4550,稻城亚丁游客中心" data-to="99.7060,27.8220,香格里拉客运站"></div>
-    </div>
-    <div class="nseg">
-      <div class="t"><b>D5 · 11/14 丽江站 → 丽江三义机场</b><span>打车约 30 分钟（¥50）· 赶 17:05 航班</span></div>
-      <div class="napps" data-from="100.2340,26.8010,丽江站" data-to="100.2545,26.6804,丽江三义机场"></div>
-    </div>
-
-    <p class="nav-tip">📱 手机浏览器点按会直接唤起对应地图 App 并预填路线（未安装则打开网页版）；电脑上打开网页版地图。高铁段（丽江 ⇄ 香格里拉）与航班段无法导航，按票面乘车即可。</p>
-  </div>
 
   <!-- ================= 行程安排 ================= -->
   <h2 class="title"><span class="emo">🗓️</span>每天行程</h2>
@@ -546,7 +537,7 @@
                 <span class="tk-fare">¥760</span>
               </div>
               <div class="tk-body">
-                <div class="tk-port"><b>HGH</b><span>杭州萧山</span><em>07:40</em></div>
+                <div class="tk-port"><b>HGH</b><span>杭州萧山 T3</span><em>07:40</em></div>
                 <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>3h50m</span></div>
                 <div class="tk-port to"><b>LJG</b><span>丽江三义</span><em>11:30</em></div>
               </div>
@@ -563,7 +554,7 @@
                 <span class="tk-fare">¥920</span>
               </div>
               <div class="tk-body">
-                <div class="tk-port"><b>HGH</b><span>杭州萧山</span><em>14:55</em></div>
+                <div class="tk-port"><b>HGH</b><span>杭州萧山 T3</span><em>14:55</em></div>
                 <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>3h35m</span></div>
                 <div class="tk-port to"><b>LJG</b><span>丽江三义</span><em>18:30</em></div>
               </div>
@@ -577,19 +568,57 @@
       </li>
 
       <li class="step">
-        <div class="node"><span class="node-ic"><span class="emo">🚕</span></span><span class="node-label">打车</span></div>
-        <div class="detail">
-          <strong>三义机场 → 丽江站 · ¥50</strong>
-          <span>约 30 分钟</span>
-        </div>
+        <a class="step-link" href="https://uri.amap.com/navigation?from=100.2545,26.6804,丽江三义机场&amp;to=100.2340,26.8010,丽江站&amp;mode=car&amp;src=trip2026&amp;coordinate=gaode&amp;callnative=1" target="_blank" rel="noopener" title="点击打开高德地图查看路线">
+          <div class="node"><span class="node-ic"><span class="emo">🚕</span></span><span class="node-label">打车</span></div>
+          <div class="detail">
+            <strong>三义机场 → 丽江站 · ¥50</strong>
+            <span>约 30 分钟 · 点击跳转高德地图</span>
+          </div>
+          <span class="nav-hint">🧭</span>
+        </a>
       </li>
 
       <li class="step">
         <div class="node"><span class="node-ic"><span class="emo">🚄</span></span><span class="node-label">高铁</span></div>
         <div class="detail">
           <strong>丽江 → 香格里拉 · ¥70</strong>
-          <span>上午场 13:02 → 14:25 ｜ 下午场 21:12 → 22:25</span>
           <span><span class="mark"><span class="hl">推荐 F 座靠窗</span></span>，能看到虎跳峡</span>
+
+          <div class="tk-wrap">
+            <article class="ticket" data-carrier="rl">
+              <div class="tk-head">
+                <span class="tk-code">C</span>
+                <div class="tk-carrier"><strong>丽香铁路 · C119</strong><span>主选 · 上午场</span></div>
+                <span class="tk-fare">¥70</span>
+              </div>
+              <div class="tk-body">
+                <div class="tk-port"><b>丽江</b><span>丽江站</span><em>13:02</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">🚄</span><span>1h23m</span></div>
+                <div class="tk-port to"><b>香格里拉</b><span>香格里拉站</span><em>14:25</em></div>
+              </div>
+              <div class="tk-stub">
+                <span class="chip">🪟 推荐 F 座靠窗</span>
+                <span class="tk-tag">12306 购票</span>
+              </div>
+            </article>
+
+            <article class="ticket" data-carrier="rl">
+              <div class="tk-head">
+                <span class="tk-code">C</span>
+                <div class="tk-carrier"><strong>丽香铁路 · C643</strong><span>备选 · 晚场</span></div>
+                <span class="tk-fare">¥70</span>
+              </div>
+              <div class="tk-body">
+                <div class="tk-port"><b>丽江</b><span>丽江站</span><em>21:12</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">🚄</span><span>1h13m</span></div>
+                <div class="tk-port to"><b>香格里拉</b><span>香格里拉站</span><em>22:25</em></div>
+              </div>
+              <div class="tk-stub">
+                <span class="chip off">🌙 晚场备选</span>
+                <span class="tk-tag">C119 无票时</span>
+              </div>
+            </article>
+          </div>
         </div>
       </li>
 
@@ -612,12 +641,15 @@
     </div>
     <ul class="steps">
       <li class="step">
-        <div class="node"><span class="node-ic"><span class="emo">🚌</span></span><span class="node-label">大巴</span></div>
-        <div class="detail">
-          <strong>早上 8:00 发车 · ¥148</strong>
-          <span>最晚 6–8 小时 ｜ 购票：迪庆交通小程序</span>
-          <span>或者<span class="hl">加钱换轿车 / 商务车</span>，更快更灵活</span>
-        </div>
+        <a class="step-link" href="https://uri.amap.com/navigation?from=99.7060,27.8220,香格里拉客运站&amp;to=100.0800,28.4550,稻城亚丁游客中心&amp;mode=car&amp;src=trip2026&amp;coordinate=gaode&amp;callnative=1" target="_blank" rel="noopener" title="点击打开高德地图查看路线">
+          <div class="node"><span class="node-ic"><span class="emo">🚌</span></span><span class="node-label">大巴</span></div>
+          <div class="detail">
+            <strong>早上 8:00 发车 · ¥148</strong>
+            <span>最晚 6–8 小时 ｜ 购票：迪庆交通小程序</span>
+            <span>或者<span class="hl">加钱换轿车 / 商务车</span>，更快更灵活</span>
+          </div>
+          <span class="nav-hint">🧭</span>
+        </a>
       </li>
       <li class="step">
         <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
@@ -660,11 +692,14 @@
     </div>
     <ul class="steps">
       <li class="step">
-        <div class="node"><span class="node-ic"><span class="emo">🚌</span></span><span class="node-label">大巴</span></div>
-        <div class="detail">
-          <strong>早上 06:25 发车 · ¥148</strong>
-          <span>最晚 6–8 小时，前一晚早点休息</span>
-        </div>
+        <a class="step-link" href="https://uri.amap.com/navigation?from=100.0800,28.4550,稻城亚丁游客中心&amp;to=99.7060,27.8220,香格里拉客运站&amp;mode=car&amp;src=trip2026&amp;coordinate=gaode&amp;callnative=1" target="_blank" rel="noopener" title="点击打开高德地图查看路线">
+          <div class="node"><span class="node-ic"><span class="emo">🚌</span></span><span class="node-label">大巴</span></div>
+          <div class="detail">
+            <strong>早上 06:25 发车 · ¥148</strong>
+            <span>最晚 6–8 小时，前一晚早点休息 · 点击跳转高德地图</span>
+          </div>
+          <span class="nav-hint">🧭</span>
+        </a>
       </li>
       <li class="step">
         <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
@@ -689,15 +724,37 @@
         <div class="node"><span class="node-ic"><span class="emo">🚄</span></span><span class="node-label">高铁</span></div>
         <div class="detail">
           <strong>香格里拉 → 丽江 · ¥70</strong>
-          <span>13:46 → 15:26</span>
+          <span>丽江站下车后打车 30 分钟去机场</span>
+
+          <div class="tk-wrap">
+            <article class="ticket" data-carrier="rl">
+              <div class="tk-head">
+                <span class="tk-code">C</span>
+                <div class="tk-carrier"><strong>丽香铁路 · C986</strong><span>返程 · 午后场</span></div>
+                <span class="tk-fare">¥70</span>
+              </div>
+              <div class="tk-body">
+                <div class="tk-port"><b>香格里拉</b><span>香格里拉站</span><em>13:46</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">🚄</span><span>1h40m</span></div>
+                <div class="tk-port to"><b>丽江</b><span>丽江站</span><em>15:26</em></div>
+              </div>
+              <div class="tk-stub">
+                <span class="chip">⏱ 换乘缓冲 1h39m</span>
+                <span class="tk-tag">衔接 GJ8644</span>
+              </div>
+            </article>
+          </div>
         </div>
       </li>
       <li class="step">
-        <div class="node"><span class="node-ic"><span class="emo">🚕</span></span><span class="node-label">打车</span></div>
-        <div class="detail">
-          <strong>丽江站 → 三义机场 · ¥50</strong>
-          <span>约 30 分钟</span>
-        </div>
+        <a class="step-link" href="https://uri.amap.com/navigation?from=100.2340,26.8010,丽江站&amp;to=100.2545,26.6804,丽江三义机场&amp;mode=car&amp;src=trip2026&amp;coordinate=gaode&amp;callnative=1" target="_blank" rel="noopener" title="点击打开高德地图查看路线">
+          <div class="node"><span class="node-ic"><span class="emo">🚕</span></span><span class="node-label">打车</span></div>
+          <div class="detail">
+            <strong>丽江站 → 三义机场 · ¥50</strong>
+            <span>约 30 分钟 · 点击跳转高德地图</span>
+          </div>
+          <span class="nav-hint">🧭</span>
+        </a>
       </li>
       <li class="step">
         <div class="node"><span class="node-ic"><span class="emo">✈️</span></span><span class="node-label">飞机</span></div>
@@ -709,17 +766,17 @@
             <article class="ticket" data-carrier="gj">
               <div class="tk-head">
                 <span class="tk-code">GJ</span>
-                <div class="tk-carrier"><strong>长龙航空 · GJ8644</strong><span>返程航班</span></div>
+                <div class="tk-carrier"><strong>长龙航空 · GJ8644</strong><span>返程航班 · 经停达州</span></div>
                 <span class="tk-fare">¥1053</span>
               </div>
               <div class="tk-body">
                 <div class="tk-port"><b>LJG</b><span>丽江三义</span><em>17:05</em></div>
-                <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>4h30m</span></div>
-                <div class="tk-port to"><b>HGH</b><span>杭州萧山</span><em>21:35</em></div>
+                <div class="tk-line"><div class="dash"></div><span class="emo">✈️</span><span>经停达州 45m</span><span>全程 4h30m</span></div>
+                <div class="tk-port to"><b>HGH</b><span>杭州萧山 T3</span><em>21:35</em></div>
               </div>
               <div class="tk-stub">
                 <span class="chip">🍱 含小食</span>
-                <span class="tk-tag">当天 21:35 落地</span>
+                <span class="tk-tag">21:35 落地萧山 T3</span>
               </div>
             </article>
           </div>
@@ -772,9 +829,69 @@
       <li>回程大巴 <strong>06:25</strong> 发车，同样 148 元，前一晚早点休息。</li>
       <li>亚丁景区门口这段：让酒店送，或者坐 10 元/人的小黄车。</li>
       <li>景区游玩预计 17:00–20:00 结束，回亚丁镇还要打车 + 吃饭，别排太满。</li>
-      <li>最后一天最紧：高铁 13:46 到丽江 → 打车 30 分钟到三义 → 17:05 起飞，值机、安检、登机建议留足缓冲。</li>
+      <li>最后一天最紧：高铁 C986（13:46）到丽江 → 打车 30 分钟到三义 → 17:05 起飞（经停达州约 45 分钟），值机、安检、登机建议留足缓冲。</li>
       <li>三段航班里只有 <strong>CA8517</strong> 和 <strong>GJ8644</strong> 含小食，<strong>JD5191 不含餐食</strong>，早班机记得先吃点东西或自备。</li>
     </ol>
+  </div>
+
+  <!-- ================= 待办清单 ================= -->
+  <h2 class="title" id="todo"><span class="emo">✅</span>待办清单</h2>
+
+  <div class="card todo-card">
+    <label class="todo">
+      <input type="checkbox" data-tk="flight" checked>
+      <span class="cb"></span>
+      <div class="tx">
+        <b>✈️ 往返机票 · 已出票</b>
+        <span>去程 JD5191（11/10 杭州萧山 T3 → 丽江，07:40 起飞）｜ 返程 GJ8644（11/14 丽江 17:05 → 萧山 T3，经停达州 45 分钟）</span>
+      </div>
+      <em class="ok wait">待办</em><em class="ok did">已办</em>
+    </label>
+    <label class="todo">
+      <input type="checkbox" data-tk="rail-go">
+      <span class="cb"></span>
+      <div class="tx">
+        <b>🚄 高铁票 · 去程（11/10）</b>
+        <span>丽江 → 香格里拉：主选 C119（13:02 → 14:25），备选 C643（21:12 → 22:25）｜ 12306 购票，开售即买，选 F 座靠窗</span>
+      </div>
+      <em class="ok wait">待办</em><em class="ok did">已办</em>
+    </label>
+    <label class="todo">
+      <input type="checkbox" data-tk="rail-back">
+      <span class="cb"></span>
+      <div class="tx">
+        <b>🚄 高铁票 · 返程（11/14）</b>
+        <span>香格里拉 → 丽江 C986（13:46 → 15:26）｜ 与去程一起购买，衔接 17:05 航班</span>
+      </div>
+      <em class="ok wait">待办</em><em class="ok did">已办</em>
+    </label>
+    <label class="todo">
+      <input type="checkbox" data-tk="bus">
+      <span class="cb"></span>
+      <div class="tx">
+        <b>🚌 亚丁往返大巴（11/11 / 11/13）</b>
+        <span>迪庆交通小程序购票 ¥148 × 2：去程 11/11 08:00 发车、返程 11/13 06:25 发车</span>
+      </div>
+      <em class="ok wait">待办</em><em class="ok did">已办</em>
+    </label>
+    <label class="todo">
+      <input type="checkbox" data-tk="hotel">
+      <span class="cb"></span>
+      <div class="tx">
+        <b>🏨 住宿 4 晚</b>
+        <span>11/10 香格里拉古城 · 11/11–11/12 亚丁香格里拉镇 · 11/13 香格里拉（约 ¥200/晚，建议订可免费取消的）</span>
+      </div>
+      <em class="ok wait">待办</em><em class="ok did">已办</em>
+    </label>
+    <label class="todo">
+      <input type="checkbox" data-tk="pack">
+      <span class="cb"></span>
+      <div class="tx">
+        <b>🎒 出行准备</b>
+        <span>身份证件 · 防晒霜（高原紫外线强）· 羽绒服/冲锋衣 · 氧气瓶 · 墨镜 · 充电宝；出发前一晚网上值机 + 早睡</span>
+      </div>
+      <em class="ok wait">待办</em><em class="ok did">已办</em>
+    </label>
   </div>
 
   <p class="note">
@@ -813,11 +930,11 @@
 
   /* 每日极简计划（倒计时卡片「当日计划」用，按 Day 1 日期自动推算） */
   var DAY_PLAN = {
-    1:'07:40 起飞 → 11:30 落地丽江 → 13:02 高铁 → 14:25 抵香格里拉 · 住古城',
+    1:'07:40 起飞 → 11:30 落地丽江 → 13:02 高铁 C119 → 14:25 抵香格里拉 · 住古城',
     2:'08:00 大巴出发（6–8h）→ 傍晚抵亚丁 · 住香格里拉镇',
     3:'全天稻城亚丁游玩 · 17:00–20:00 结束 · 回镇吃饭住宿',
     4:'06:25 大巴返程（6–8h）→ 午后抵香格里拉 · 自由活动',
-    5:'上午自由 → 13:46 高铁 → 15:26 到丽江 → 17:05 起飞 → 21:35 落地杭州'
+    5:'上午自由 → 13:46 高铁 C986 → 15:26 到丽江 → 17:05 起飞（经停达州）→ 21:35 落地杭州萧山 T3'
   };
 
   function ts(off,hm){
@@ -882,21 +999,16 @@
   tick();
   setInterval(tick, 1000);
 
-  /* 一键唤起地图：按 data-from / data-to（GCJ-02 经纬度）生成 高德 / 百度 / 腾讯 深链 */
+  /* 待办清单：勾选状态保存在浏览器本地（localStorage） */
   (function(){
-    var segs=document.querySelectorAll('.napps');
-    function enc(s){ return encodeURIComponent(s); }
-    for(var i=0;i<segs.length;i++){
-      var f=segs[i].getAttribute('data-from').split(','), t=segs[i].getAttribute('data-to').split(',');
-      var flng=f[0], flat=f[1], fn=enc(f[2]);
-      var tlng=t[0], tlat=t[1], tn=enc(t[2]);
-      var gaode='https://uri.amap.com/navigation?from='+flng+','+flat+','+fn+'&to='+tlng+','+tlat+','+tn+'&mode=car&src=trip2026&coordinate=gaode&callnative=1';
-      var baidu='https://api.map.baidu.com/direction?origin=latlng:'+flat+','+flng+'|name:'+fn+'&destination=latlng:'+tlat+','+tlng+'|name:'+tn+'&mode=driving&output=html&coord_type=gcj02&src=trip2026';
-      var qq='https://apis.map.qq.com/uri/v1/routeplan?plan=drive&from='+fn+'&fromcoord='+flat+','+flng+'&to='+tn+'&tocoord='+tlat+','+tlng+'&referer=trip2026';
-      segs[i].innerHTML =
-        '<a class="napp" target="_blank" rel="noopener" href="'+gaode+'">🟠 高德</a>'+
-        '<a class="napp" target="_blank" rel="noopener" href="'+baidu+'">🔵 百度</a>'+
-        '<a class="napp" target="_blank" rel="noopener" href="'+qq+'">🟢 腾讯</a>';
+    var boxes=document.querySelectorAll('.todo-card input[type=checkbox]');
+    for(var i=0;i<boxes.length;i++){
+      (function(bx){
+        try{ if(localStorage.getItem('trip-todo-'+bx.dataset.tk)==='1') bx.checked=true; }catch(e){}
+        bx.addEventListener('change',function(){
+          try{ localStorage.setItem('trip-todo-'+this.dataset.tk, this.checked?'1':'0'); }catch(e){}
+        });
+      })(boxes[i]);
     }
   })();
 })();
