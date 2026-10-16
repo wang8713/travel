@@ -179,6 +179,12 @@
 
   /* ================= 日程卡 ================= */
   .day{padding:20px 20px 12px; margin-bottom:16px; scroll-margin-top:74px}
+
+  /* 亚丁一日游嵌入 */
+  .yd-embed{width:100%; display:block; margin:14px 0 0; border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff}
+  .embed-note{margin:9px 2px 6px; font-size:12px; color:var(--ink-3)}
+  .embed-note a{color:var(--blue); font-weight:700; text-decoration:none}
+  .embed-note a:hover{text-decoration:underline}
   .day-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:14px; border-bottom:1px dashed var(--line)}
   .badge{flex:none; font-size:11px; font-weight:800; letter-spacing:.1em; color:var(--brown-deep); background:var(--brown-soft); border-radius:999px; padding:5px 12px}
   .day-head h2{margin:0; font-size:18px; line-height:1.4; font-weight:800; flex:1 1 auto}
@@ -750,6 +756,8 @@
         </div>
       </li>
     </ul>
+    <iframe id="ydEmbed" class="yd-embed" src="稻城亚丁一日游.html" title="稻城亚丁一日游路线（长线 / 短线）" loading="lazy" style="height:820px"></iframe>
+    <p class="embed-note">🗺 亚丁一日游路线 · 地图 + 长线 / 短线 · <a href="稻城亚丁一日游.html" target="_blank" rel="noopener">新窗口打开完整页</a></p>
   </article>
 
   <!-- DAY 4 -->
@@ -1080,6 +1088,18 @@
       })(boxes[i]);
     }
   })();
+})();
+
+/* 亚丁一日游嵌入页：接收子页面高度消息，自动撑高 iframe */
+(function(){
+  var f = document.getElementById('ydEmbed');
+  if (!f) return;
+  window.addEventListener('message', function(e){
+    var d = e.data;
+    if (d && d.type === 'yadingHeight' && d.h > 300) {
+      f.style.height = Math.min(Math.ceil(d.h) + 18, 4600) + 'px';
+    }
+  });
 })();
 </script>
 </body>

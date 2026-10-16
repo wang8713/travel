@@ -1,5 +1,6 @@
 # 本地临时产物（调试截图等）
 .dsh-vision-toolkit/
+.trae-html-share-packages/
 .vscode/
 Thumbs.db
 desktop.ini
