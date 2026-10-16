@@ -180,14 +180,44 @@
   /* ================= 日程卡 ================= */
   .day{padding:20px 20px 12px; margin-bottom:16px; scroll-margin-top:74px}
 
-  /* 亚丁一日游嵌入 */
-  .yd-embed{width:100%; display:block; margin:14px 0 0; border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff}
-  .embed-note{margin:9px 2px 6px; font-size:12px; color:var(--ink-3)}
-  .embed-note a{color:var(--blue); font-weight:700; text-decoration:none}
-  .embed-note a:hover{text-decoration:underline}
+  /* Day 3 亚丁一日游（内嵌折叠板块） */
+  .yd-inline{margin:14px 0 0; background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden}
+  .yd-inline summary{cursor:pointer; list-style:none; padding:12px 14px; font-size:14px; font-weight:800; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+  .yd-inline summary::-webkit-details-marker{display:none}
+  .yd-inline summary::after{content:"▾"; margin-left:auto; color:var(--ink-3); transition:transform .2s}
+  .yd-inline[open] summary::after{transform:rotate(180deg)}
+  .yd-sum-hint{font-size:11px; font-weight:500; color:var(--ink-3)}
+  .yd-body{padding:0 14px 14px}
+  .yd-map{margin:0 0 12px; text-align:center}
+  .yd-map img{max-width:100%; width:560px; border-radius:10px; border:1px solid var(--line); background:#fff; display:block; margin:0 auto}
+  .yd-map figcaption{font-size:11px; color:var(--ink-3); margin-top:6px}
+  .yd-flow{display:flex; flex-wrap:nowrap; overflow-x:auto; gap:0; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 8px; margin-bottom:12px}
+  .yd-node{flex:1 0 auto; min-width:110px; text-align:center; padding:0 4px}
+  .yd-node b{display:block; font-size:13.5px; line-height:1.4}
+  .yd-node small{font-size:10.5px; color:var(--ink-3)}
+  .yd-hop{flex:0 0 auto; display:flex; flex-direction:column; justify-content:center; align-items:center; min-width:86px}
+  .yd-hop span{color:var(--blue); font-size:16px; font-weight:800; line-height:1}
+  .yd-hop small{color:var(--blue); font-weight:700; font-size:10.5px; white-space:nowrap; margin-top:2px}
+  .yd-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:10px}
+  .yd-card{background:var(--card); border:1px solid var(--line); border-radius:10px; border-top:4px solid #3a8c4f; padding:12px}
+  .yd-card.long{border-top-color:#1f6f7e}
+  .yd-tag{display:inline-block; color:#fff; background:#3a8c4f; border-radius:999px; font-size:10.5px; font-weight:700; padding:2px 10px; margin-bottom:6px}
+  .yd-tag.long{background:#1f6f7e}
+  .yd-card>b{display:block; font-size:13.5px; line-height:1.45}
+  .yd-meta{font-size:11px; font-weight:700; color:#c2703e; margin:3px 0 8px}
+  .yd-card ul{list-style:none; margin:0 0 8px; padding:0}
+  .yd-card li{position:relative; padding:0 0 8px 14px; border-left:2px solid var(--line); font-size:12.5px}
+  .yd-card li:last-child{border-left-color:transparent; padding-bottom:0}
+  .yd-card li::before{content:""; position:absolute; left:-5px; top:4px; width:7px; height:7px; border-radius:50%; background:var(--card); border:2px solid #3a8c4f}
+  .yd-card.long li::before{border-color:#1f6f7e}
+  .yd-card li small{display:block; font-size:10.5px; color:var(--ink-3)}
+  .yd-sum2{font-size:11.5px; color:var(--ink-3); border-top:1px dashed var(--line); padding-top:7px}
+  .yd-sum2 em{font-style:normal; color:#c2703e; font-weight:800}
+  .yd-tips{margin-top:12px; background:var(--card); border-left:3px solid #c2703e; border-radius:0 8px 8px 0; padding:9px 12px; font-size:12px}
 
-  /* Day 5 额外加游板块 */
-  .extra-tour{margin:14px 0 0; background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 14px 12px}
+  /* 额外加游（独立章节） */
+  #extra{scroll-margin-top:74px}
+  .extra-tour{margin:0 0 16px; background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px; box-shadow:var(--shadow-sm)}
   .et-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 10px; margin-bottom:10px}
   .et-head b{font-size:14px}
   .et-head span{font-size:11px; color:var(--ink-3)}
@@ -377,6 +407,7 @@
     <a href="#d3">Day 3</a>
     <a href="#d4">Day 4</a>
     <a href="#d5">Day 5</a>
+    <a href="#extra">➕ 加游</a>
     <a href="#cost">费用</a>
     <a href="#tips">提醒</a>
     <a href="#todo">✅ 待办</a>
@@ -772,8 +803,53 @@
         </div>
       </li>
     </ul>
-    <iframe id="ydEmbed" class="yd-embed" src="稻城亚丁一日游.html" title="稻城亚丁一日游路线（长线 / 短线）" loading="lazy" style="height:820px"></iframe>
-    <p class="embed-note">🗺 亚丁一日游路线 · 地图 + 长线 / 短线 · <a href="稻城亚丁一日游.html" target="_blank" rel="noopener">新窗口打开完整页</a></p>
+
+    <!-- DAY 3 亚丁一日游（内嵌折叠） -->
+    <details class="yd-inline">
+      <summary>🗺 亚丁一日游路线 · 地图 + 长线 / 短线 <span class="yd-sum-hint">点击展开</span></summary>
+      <div class="yd-body">
+        <figure class="yd-map">
+          <img src="稻城亚丁旅游地图.png" alt="稻城亚丁旅游地图：长线与短线徒步路线" loading="lazy">
+          <figcaption>游客中心 → 扎灌崩（观光车）· 冲古寺 → 珍珠海（短线·绿）· 冲古寺 → 洛绒牛场 → 牛奶海 → 五色海（长线·蓝）</figcaption>
+        </figure>
+        <div class="yd-flow">
+          <div class="yd-node"><b>亚丁入口<br>游客中心</b><small>观光车起点 · 2900m</small></div>
+          <div class="yd-hop"><span>→</span><small>大巴 约1小时</small></div>
+          <div class="yd-node"><b>扎灌崩</b><small>观光车终点 · 3800m</small></div>
+          <div class="yd-hop"><span>→</span><small>步行 0.5km</small></div>
+          <div class="yd-node"><b>冲古寺</b><small>电瓶车起点 · 3900m · 长短线分岔口</small></div>
+        </div>
+        <div class="yd-grid">
+          <div class="yd-card">
+            <span class="yd-tag">短线 · 轻松</span>
+            <b>冲古寺 → 珍珠海</b>
+            <div class="yd-meta">⏱ 约 2.5–3 小时 · 往返 4 km · 海拔 3900→4080m</div>
+            <ul>
+              <li>冲古寺<small>短线起点，顺时针上山</small></li>
+              <li>心宝湖<small>途经小海子，约 1 km</small></li>
+              <li>珍珠海<small>4080m · 正对仙乃日雪山，可拍倒影</small></li>
+              <li>原路返回冲古寺<small>下山约 1 小时</small></li>
+            </ul>
+            <div class="yd-sum2">往返 <em>4 km</em> · 木栈道为主，适合体力一般 / 高反敏感 / 时间有限者</div>
+          </div>
+          <div class="yd-card long">
+            <span class="yd-tag long">长线 · 挑战</span>
+            <b>冲古寺 → 洛绒牛场 → 牛奶海 → 五色海</b>
+            <div class="yd-meta">⏱ 全天 7–9 小时 · 徒步往返 10 km · 海拔 3900→4700m</div>
+            <ul>
+              <li>冲古寺<small>乘电瓶车出发（约 6.7km，参考往返 80 元）</small></li>
+              <li>洛绒牛场<small>4180m · 电瓶车终点，仰望央迈勇，有补给</small></li>
+              <li>舍身崖<small>徒步 4 km 缓坡马道 · 马帮转点</small></li>
+              <li>牛奶海<small>4600m · 末段 1 km 陡升，亚丁招牌</small></li>
+              <li>五色海<small>4700m · 再爬升约 100m，全程最高点</small></li>
+              <li>原路返回出沟<small>下山膝盖压力大，善用登山杖</small></li>
+            </ul>
+            <div class="yd-sum2">电瓶车 + 徒步往返 <em>10 km</em> · 适合体力好、已适应高原者；马匹有限需赶早</div>
+          </div>
+        </div>
+        <div class="yd-tips">💡 <b>二选一即可</b>：赶最早一班进沟选长线打卡牛奶海；想轻松看雪山倒影选短线。全程 4000m+，慢走多喝水，随身备氧气瓶；出现剧烈头痛、呕吐请立即下撤就医。</div>
+      </div>
+    </details>
   </article>
 
   <!-- DAY 4 -->
@@ -886,36 +962,37 @@
         </div>
       </li>
     </ul>
+  </article>
 
-    <!-- DAY 5 额外加游板块（可选） -->
-    <div class="extra-tour">
-      <div class="et-head">
-        <b>➕ 额外加游板块</b>
-        <span>可选项目 · 视时间与体力安排</span>
+  <!-- ================= 额外加游 ================= -->
+  <h2 class="title" id="extra"><span class="emo">➕</span>额外加游</h2>
+
+  <div class="extra-tour">
+    <div class="et-head">
+      <span>可选项目 · 视时间与体力安排</span>
+    </div>
+    <div class="et-grid">
+      <div class="et-item">
+        <div class="et-title">🏔 梅里雪山旅游 <em>¥388</em></div>
+        <div class="et-desc">
+          <span>🚐 私家车 · 不拼车 · 适合 3 人</span>
+          <span>📑 详情计划见携程小程序</span>
+        </div>
+        <button class="et-btn" type="button" data-copy="#小程序://携程旅行/KUBeBm7cejVIIit">
+          📱 打开携程小程序查看详情计划
+          <span class="copy-tip">点击复制小程序链接，去微信粘贴打开</span>
+        </button>
       </div>
-      <div class="et-grid">
-        <div class="et-item">
-          <div class="et-title">🏔 梅里雪山旅游 <em>¥388</em></div>
-          <div class="et-desc">
-            <span>🚐 私家车 · 不拼车 · 适合 3 人</span>
-            <span>📑 详情计划见携程小程序</span>
-          </div>
-          <button class="et-btn" type="button" data-copy="#小程序://携程旅行/KUBeBm7cejVIIit">
-            📱 打开携程小程序查看详情计划
-            <span class="copy-tip">点击复制小程序链接，去微信粘贴打开</span>
-          </button>
+      <div class="et-item">
+        <div class="et-title">🌲 普达措国家公园 <em>门票+观光车 ¥138</em></div>
+        <div class="et-desc">
+          <span>🥾 徒步高原景观栈道，全长约 3 公里</span>
+          <span>🌊 下午可以去纳帕海（依拉草原）</span>
         </div>
-        <div class="et-item">
-          <div class="et-title">🌲 普达措国家公园 <em>门票+观光车 ¥138</em></div>
-          <div class="et-desc">
-            <span>🥾 徒步高原景观栈道，全长约 3 公里</span>
-            <span>🌊 下午可以去纳帕海（依拉草原）</span>
-          </div>
-          <span class="et-warn">⏳ 游玩约 4–5 小时，若需赶 13:46 高铁请预留返程时间</span>
-        </div>
+        <span class="et-warn">⏳ 游玩约 4–5 小时，若需赶 13:46 高铁请预留返程时间</span>
       </div>
     </div>
-  </article>
+  </div>
 
   <!-- ================= 费用 ================= -->
   <h2 class="title" id="cost"><span class="emo">💸</span>费用明细</h2>
@@ -1145,20 +1222,6 @@
       })(boxes[i]);
     }
   })();
-})();
-
-/* 亚丁一日游嵌入页：接收子页面高度消息，自动撑高 iframe */
-(function(){
-  var f = document.getElementById('ydEmbed');
-  if (!f) return;
-  window.addEventListener('message', function(e){
-    var d = e.data;
-    if (d && d.type === 'yadingHeight' && d.h > 300) {
-      var nh = Math.min(Math.ceil(d.h) + 10, 4600);
-      /* 高度基本不变时不再写入，避免父子页面 resize 互相触发 */
-      if (Math.abs(f.getBoundingClientRect().height - nh) > 2) f.style.height = nh + 'px';
-    }
-  });
 })();
 
 /* 携程小程序链接：浏览器无法直接唤起小程序，点击复制口令去微信打开 */
