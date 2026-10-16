@@ -185,6 +185,22 @@
   .embed-note{margin:9px 2px 6px; font-size:12px; color:var(--ink-3)}
   .embed-note a{color:var(--blue); font-weight:700; text-decoration:none}
   .embed-note a:hover{text-decoration:underline}
+
+  /* Day 5 额外加游板块 */
+  .extra-tour{margin:14px 0 0; background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 14px 12px}
+  .et-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 10px; margin-bottom:10px}
+  .et-head b{font-size:14px}
+  .et-head span{font-size:11px; color:var(--ink-3)}
+  .et-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:10px}
+  .et-item{border:1px solid var(--line); border-radius:10px; padding:11px 12px; background:var(--card)}
+  .et-title{font-size:13.5px; font-weight:800; display:flex; justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:wrap}
+  .et-title em{font-style:normal; color:#c2703e; font-weight:800; white-space:nowrap}
+  .et-desc{margin:6px 0 9px; display:flex; flex-direction:column; gap:3px; font-size:12px}
+  .et-btn{width:100%; border:1px dashed var(--blue); color:var(--blue); background:transparent; border-radius:9px; padding:8px 10px; font-size:12.5px; font-weight:700; cursor:pointer}
+  .et-btn:active{background:var(--blue); color:#fff}
+  .copy-tip{display:block; font-size:10.5px; font-weight:500; color:var(--ink-3); margin-top:2px}
+  .copy-tip.on{color:#2e9e5b; font-weight:700}
+  .et-warn{font-size:11.5px; color:var(--ink-3); display:block; margin-top:2px}
   .day-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:14px; border-bottom:1px dashed var(--line)}
   .badge{flex:none; font-size:11px; font-weight:800; letter-spacing:.1em; color:var(--brown-deep); background:var(--brown-soft); border-radius:999px; padding:5px 12px}
   .day-head h2{margin:0; font-size:18px; line-height:1.4; font-weight:800; flex:1 1 auto}
@@ -644,7 +660,7 @@
       <li class="step">
         <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
         <div class="detail">
-          <strong>住香格里拉古城</strong>
+          <strong>住独克宗古城</strong>
           <span>酒店 + 自由活动，当晚适应海拔</span>
         </div>
       </li>
@@ -782,6 +798,16 @@
         <div class="node"><span class="node-ic hotel"><span class="emo">🏨</span></span><span class="node-label">住宿</span></div>
         <div class="detail"><strong>住香格里拉，酒店 + 自由活动</strong></div>
       </li>
+      <li class="step">
+        <a class="step-link" href="https://uri.amap.com/navigation?from=99.7085,27.8300,独克宗古城北门&amp;to=99.7360,27.8900,松赞林寺&amp;mode=car&amp;src=trip2026&amp;coordinate=gaode&amp;callnative=1" target="_blank" rel="noopener" title="点击打开高德地图查看路线">
+          <div class="node"><span class="node-ic play"><span class="emo">🛕</span></span><span class="node-label">游览</span></div>
+          <div class="detail">
+            <strong>独克宗古城北门 → 松赞林寺 · 门票 55 元</strong>
+            <span>酒店安顿后前往，约 5 km 车程 · 点击跳转高德地图</span>
+          </div>
+          <span class="nav-hint">🧭</span>
+        </a>
+      </li>
     </ul>
   </article>
 
@@ -860,6 +886,35 @@
         </div>
       </li>
     </ul>
+
+    <!-- DAY 5 额外加游板块（可选） -->
+    <div class="extra-tour">
+      <div class="et-head">
+        <b>➕ 额外加游板块</b>
+        <span>可选项目 · 视时间与体力安排</span>
+      </div>
+      <div class="et-grid">
+        <div class="et-item">
+          <div class="et-title">🏔 梅里雪山旅游 <em>¥388</em></div>
+          <div class="et-desc">
+            <span>🚐 私家车 · 不拼车 · 适合 3 人</span>
+            <span>📑 详情计划见携程小程序</span>
+          </div>
+          <button class="et-btn" type="button" data-copy="#小程序://携程旅行/KUBeBm7cejVIIit">
+            📱 打开携程小程序查看详情计划
+            <span class="copy-tip">点击复制小程序链接，去微信粘贴打开</span>
+          </button>
+        </div>
+        <div class="et-item">
+          <div class="et-title">🌲 普达措国家公园 <em>门票+观光车 ¥138</em></div>
+          <div class="et-desc">
+            <span>🥾 徒步高原景观栈道，全长约 3 公里</span>
+            <span>🌊 下午可以去纳帕海（依拉草原）</span>
+          </div>
+          <span class="et-warn">⏳ 游玩约 4–5 小时，若需赶 13:46 高铁请预留返程时间</span>
+        </div>
+      </div>
+    </div>
   </article>
 
   <!-- ================= 费用 ================= -->
@@ -916,7 +971,7 @@
 
   <div class="card todo-card">
     <label class="todo">
-      <input type="checkbox" data-tk="flight" checked>
+      <input type="checkbox" data-tk="flight">
       <span class="cb"></span>
       <div class="tx">
         <b>✈️ 往返机票 · 已出票</b>
@@ -956,7 +1011,7 @@
       <span class="cb"></span>
       <div class="tx">
         <b>🏨 住宿 4 晚</b>
-        <span>11/10 香格里拉古城 · 11/11–11/12 亚丁香格里拉镇 · 11/13 香格里拉（约 ¥200/晚，建议订可免费取消的）</span>
+        <span>11/10 独克宗古城 · 11/11–11/12 亚丁香格里拉镇 · 11/13 香格里拉（约 ¥200/晚，建议订可免费取消的）</span>
       </div>
       <em class="ok wait">待办</em><em class="ok did">已办</em>
     </label>
@@ -992,7 +1047,7 @@
     {sd:0,s:'07:40',ed:0,e:'11:30',day:1,m:'✈️',t:'飞机 · 杭州萧山 → 丽江三义',x:'首都航空 JD5191（不含餐食）· 3h50m'},
     {sd:0,s:'11:30',ed:0,e:'13:02',day:1,m:'🚕',t:'打车 · 三义机场 → 丽江站',x:'车程约 30 分钟 · ¥50，剩下时间候车'},
     {sd:0,s:'13:02',ed:0,e:'14:25',day:1,m:'🚄',t:'高铁 · 丽江 → 香格里拉',x:'¥70 · 推荐 F 座靠窗，能看虎跳峡'},
-    {sd:0,s:'14:25',ed:1,e:'08:00',day:1,m:'🏨',t:'香格里拉古城 · 住宿 + 自由活动',x:'当晚适应海拔，为后面两天留体力'},
+    {sd:0,s:'14:25',ed:1,e:'08:00',day:1,m:'🏨',t:'独克宗古城 · 住宿 + 自由活动',x:'当晚适应海拔，为后面两天留体力'},
     {sd:1,s:'08:00',ed:1,e:'16:00',day:2,m:'🚌',t:'大巴 · 香格里拉 → 亚丁（香格里拉镇）',x:'¥148 · 最晚 6–8 小时 · 迪庆交通小程序购票'},
     {sd:1,s:'16:00',ed:2,e:'08:00',day:2,m:'🏨',t:'亚丁 · 住宿 + 自由活动',x:'次日一早就进景区'},
     {sd:2,s:'08:00',ed:2,e:'18:00',day:3,m:'📸',t:'稻城亚丁 · 全天游玩',x:'预计 17:00–20:00 结束，回亚丁镇打车 + 吃饭'},
@@ -1076,14 +1131,16 @@
   tick();
   setInterval(tick, 1000);
 
-  /* 待办清单：勾选状态保存在浏览器本地（localStorage） */
+  /* 待办清单：勾选状态保存在浏览器本地（localStorage）
+     键名带 v2：旧版本已勾选状态全部作废，清单默认回到"待办" */
   (function(){
+    var KEY='trip-todo-v2-';
     var boxes=document.querySelectorAll('.todo-card input[type=checkbox]');
     for(var i=0;i<boxes.length;i++){
       (function(bx){
-        try{ if(localStorage.getItem('trip-todo-'+bx.dataset.tk)==='1') bx.checked=true; }catch(e){}
+        try{ if(localStorage.getItem(KEY+bx.dataset.tk)==='1') bx.checked=true; }catch(e){}
         bx.addEventListener('change',function(){
-          try{ localStorage.setItem('trip-todo-'+this.dataset.tk, this.checked?'1':'0'); }catch(e){}
+          try{ localStorage.setItem(KEY+this.dataset.tk, this.checked?'1':'0'); }catch(e){}
         });
       })(boxes[i]);
     }
@@ -1097,8 +1154,38 @@
   window.addEventListener('message', function(e){
     var d = e.data;
     if (d && d.type === 'yadingHeight' && d.h > 300) {
-      f.style.height = Math.min(Math.ceil(d.h) + 18, 4600) + 'px';
+      var nh = Math.min(Math.ceil(d.h) + 10, 4600);
+      /* 高度基本不变时不再写入，避免父子页面 resize 互相触发 */
+      if (Math.abs(f.getBoundingClientRect().height - nh) > 2) f.style.height = nh + 'px';
     }
+  });
+})();
+
+/* 携程小程序链接：浏览器无法直接唤起小程序，点击复制口令去微信打开 */
+(function(){
+  function copyText(txt, ok){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(ok, function(){ legacyCopy(txt, ok); });
+    } else { legacyCopy(txt, ok); }
+  }
+  function legacyCopy(txt, ok){
+    var ta = document.createElement('textarea');
+    ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta); ok();
+  }
+  document.querySelectorAll('.et-btn[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      copyText(btn.getAttribute('data-copy'), function(){
+        var tip = btn.querySelector('.copy-tip');
+        if (tip) {
+          tip.textContent = '✅ 已复制，打开微信粘贴即可进入携程小程序';
+          tip.classList.add('on');
+          setTimeout(function(){ tip.classList.remove('on'); }, 3000);
+        }
+      });
+    });
   });
 })();
 </script>

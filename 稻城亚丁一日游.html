@@ -25,18 +25,18 @@
     font-size: 16px;
     line-height: 1.8;
   }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.25rem 1.8rem; }
 
   /* ---------- Header ---------- */
   header {
     background: linear-gradient(135deg, var(--accent), #14525e);
     color: #fff;
     text-align: center;
-    padding: 2.6rem 1.25rem 2.2rem;
+    padding: 1.6rem 1.25rem 1.5rem;
   }
-  header h1 { font-size: 1.9rem; letter-spacing: 0.06em; }
-  header .sub { margin-top: 0.4rem; color: rgba(255,255,255,0.88); font-size: 0.95rem; }
-  header .chips { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+  header h1 { font-size: 1.55rem; letter-spacing: 0.06em; }
+  header .sub { margin-top: 0.3rem; color: rgba(255,255,255,0.88); font-size: 0.88rem; }
+  header .chips { margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
   header .chips span {
     background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
     border-radius: 999px; padding: 0.25rem 0.9rem; font-size: 0.85rem;
@@ -45,14 +45,14 @@
   h2 {
     font-size: 1.3rem; letter-spacing: 0.04em;
     padding-left: 0.7rem; border-left: 4px solid var(--accent);
-    margin: 2.4rem 0 1.2rem;
+    margin: 1.6rem 0 0.9rem;
   }
   .note { font-size: 0.85rem; color: var(--muted); }
 
   /* ---------- 共同段流程 ---------- */
   .flow {
     display: flex; flex-wrap: nowrap; align-items: stretch; gap: 0;
-    background: var(--bg2); border-radius: 14px; padding: 1.3rem 1rem;
+    background: var(--bg2); border-radius: 14px; padding: 1rem 0.8rem;
     overflow-x: auto;
   }
   .node { flex: 1 0 auto; text-align: center; min-width: 118px; padding: 0 0.4rem; }
@@ -70,15 +70,16 @@
   /* ---------- 地图 ---------- */
   figure.map { margin: 0.4rem 0 0; text-align: center; }
   figure.map img {
-    max-width: 100%; border-radius: 14px;
+    max-width: 660px; margin: 0 auto; display: block;
+    border-radius: 14px;
     border: 1px solid var(--rule); background: #fff;
     box-shadow: 0 6px 24px rgba(34,50,43,0.10);
   }
   figure.map figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 0.6rem; }
 
   /* ---------- 路线卡片 ---------- */
-  .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-  .route-card { background: #fff; border-radius: 14px; border-top: 5px solid var(--short); box-shadow: 0 4px 18px rgba(34,50,43,0.08); padding: 1.3rem 1.3rem 1.1rem; }
+  .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .route-card { background: #fff; border-radius: 14px; border-top: 5px solid var(--short); box-shadow: 0 4px 18px rgba(34,50,43,0.08); padding: 1.1rem 1.1rem 1rem; }
   .route-card.long { border-top-color: var(--long); }
   .route-card .tag { display: inline-block; color: #fff; background: var(--short); border-radius: 999px; font-size: 0.82rem; padding: 0.15rem 0.85rem; margin-bottom: 0.6rem; }
   .route-card.long .tag { background: var(--long); }
@@ -102,7 +103,7 @@
   .route-card .sum b { color: var(--accent2); }
 
   /* ---------- 提示 ---------- */
-  .tips { background: var(--bg2); border-left: 4px solid var(--accent2); border-radius: 0 10px 10px 0; padding: 0.85rem 1.1rem; font-size: 0.92rem; margin-top: 1.4rem; }
+  .tips { background: var(--bg2); border-left: 4px solid var(--accent2); border-radius: 0 10px 10px 0; padding: 0.85rem 1.1rem; font-size: 0.92rem; margin-top: 1rem; }
   .tips strong { color: var(--accent2); }
 
   @media (max-width: 700px) {
@@ -193,7 +194,8 @@
 (function(){
   var post = function(){
     if (window.parent === window) return;
-    parent.postMessage({ type: 'yadingHeight', h: document.documentElement.scrollHeight }, '*');
+    /* 用 body.scrollHeight：documentElement.scrollHeight 会随父页 iframe 增高而变大，导致循环 */
+    parent.postMessage({ type: 'yadingHeight', h: document.body.scrollHeight }, '*');
   };
   window.addEventListener('load', post);
   window.addEventListener('resize', post);
